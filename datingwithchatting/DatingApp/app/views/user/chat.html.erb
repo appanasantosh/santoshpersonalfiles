@@ -1,0 +1,39 @@
+<% provide(:title,'Dating Chat') %>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#list").on("click",'#sendmessage',function(){
+		alert($(this).closest("tr").find("#name").text());
+		
+		
+	});
+});
+
+</script>
+
+<h1>Chat</h1>
+<div class="row">
+
+	<div class="span4" style="font-size:1.3em; " >
+		<table class="table table-bordered table-hover" id="list" style="background-image:url(<%= asset_path'bg1.jpg'%>); background-size:cover ;background-repeat:norepeat">
+			<tablehead>
+				<tr>
+					
+					<td>Name </td>
+					<td>Send</td>
+				</tr>
+			</tablehead>
+			<tbody>
+			<% @users.each do |u|%>
+				<tr class="userrow">
+					
+					<td id="name"><%=u.name%></td>
+					<td id="send"><%=link_to "Send message","#", class: "btn btn-medium btn-primary start-conversation", "data-sid" => current_user.id, "data-rip" => u.id %></td>
+				</tr>
+				
+			<% end %>
+			</tbody>
+		</table>
+	</div>
+	
+	
+</div>

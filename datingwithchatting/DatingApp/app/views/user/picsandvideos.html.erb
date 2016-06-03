@@ -1,0 +1,66 @@
+<% provide(:title, 'User pics and videos') %>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#myAlert").hide();
+		$("#submit").click(function(){
+			
+			selectedfilelength = $("#uploadimg").val().length;
+			if(selectedfilelength < 1)
+			{
+				$("#myAlert").show();
+				event.preventDefault();
+			}
+			else
+			{
+				$(".uploadform").submit();
+			}
+		});
+		$(".close").click(function(){
+        $("#myAlert").hide();
+    	});
+	});
+</script>
+
+<div class="alert alert-success" id="myAlert" style="font-size:1.3em">
+    <a href="#" class="close">&times;</a>
+    <strong>Select</strong> a file to upload.
+ </div>
+
+<div>
+	<%= form_for(:profileimage, :url => {action: "uploadimages" }, html: { class: "uploadform" }) do |f| %>
+			
+
+		
+			<label class="label label-success" style="font-size:1.3em">Images & Videos : 
+				<%= f.file_field :image ,id: "uploadimg"%>
+			</label>
+		
+		</br>
+
+			<%= f.submit 'Save' ,class: "btn btn-large btn-primary", id: "submit"%>
+
+		<% end %>
+</div>
+<div class="row" >
+	<div class="span6 offset3">
+		
+		<% if !@profileimage.nil?%>
+		<% @profileimage.each do |img|%>
+	
+			<% if img.image.content_type.to_s.include?('video') %>
+				<%= video_tag img.image.url, controls: true%>
+			<% end %>
+			<% if  img.image.content_type.to_s.include?('image') %>
+				<%= image_tag img.image.url, size:"250x250"%>
+			<% end %>
+			
+			
+			<hr></hr>
+
+		<% end %>
+		<% end %>
+		
+		
+		
+	</div>
+</div>

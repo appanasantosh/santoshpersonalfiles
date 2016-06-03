@@ -1,0 +1,279 @@
+<style>
+label{font-family:gabriola;font-size:20px}
+.formspan{color:red}
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+bootstrap_alert = function(){}
+	bootstrap_alert.warning = function(message){
+	$('#profileholder').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>');
+	}
+	$('#mobnum').keyup(function(){
+		var mobile = $(this);
+		if(mobile.val().length >= 1)
+		{
+			if(isNaN(mobile.val()) == true)
+			{
+				mobile.val("");
+			}
+		}
+	});
+
+	$('#create').on('click',function(){
+	
+		var name = $('.username');
+		var email = $('.useremail');
+		var mobnum = $('#mobnum');
+		var strt = $('#strt');
+		var lm = $('#lm');
+		var cty = $('#cty');
+		var pin = $('#pnc');
+		if(name.val().length <=0 || email.val().length <=0 || mobnum.val().length <=0 || strt.val().length <=0 || cty.val().length <= 0 || pin.val().length <= 0 || lm.val().length <= 0)
+		{
+			var message = 'All the fields are mandatory please fill them';
+			alert('wrong');
+			bootstrap_alert.warning(message);
+			event.preventDefault();
+		}
+		else
+		{
+			$('#profileform').submit();
+		}
+		
+	});
+
+	$(document).on('click','.delete',function(){
+	//alert('clicked');
+		var addrs=$(this).parent();
+		$.ajax({type:'Post',url:'/users/deleteaddress',data:{addrsid:$(this).parent().attr('id')},dataType:'json',success:function(responce){
+			addrs.remove();
+		},
+		error: function(err){alert('error');}})
+
+	});
+	$('.defaultcheck').change(function(){
+		var check = $(this);
+		//alert(check.attr('id'));
+		if($(this).is(":checked"))
+		{
+			$.ajax({type:'Post',url:'/users/defaultaddress',dataType:'json',data:{address_id:check.attr('id')},success:function(responce){
+				$('.defaultcheck').prop('checked',false);
+				check.prop('checked',true);
+				$('.defimg').attr('src','');
+				
+				check.parent().find("img").attr('src','/images/tickgreen.png');
+			},
+			error:function(err)
+			{
+				alert('error');
+			}});
+		}
+		else
+		{
+			
+			check.prop('checked',true);
+		}
+
+	});
+});
+</script>
+
+
+<div class="col-sm-12" style="background-color:white;margin-bottom:15px">
+	<h3 style="font-family:ar destine;text-decoration:underline">Profile</h3>
+	<% if(typeof message !== 'undefined' && message.length > 0) {%>
+		<div style="background-color:papayawhip;border-radius:25px;border-style:solid; border-color:#CCF2D9">
+  		
+  		<p style="padding-left:15px;padding-top:5px;padding-bottom:5px"><font style="font-weight:bold" color='grey'><%= message%></font></p>
+  		 	</div>
+	<%} %>
+<div id="profileholder"></div>
+
+
+<form class="form-horizontal" role="form" id="profileform" action="/users/createprofile" method="post" enctype="multipart/form-data" style="margin-top:15px;">
+<% if(profile !== null){%>
+<div>
+<legend>Personal Information</legend>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Name <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control col-sm-2" id="name" name="fullname" value=<%= profile.name%>>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Gender <span class="formspan">*</span></label>
+		<div class="col-sm-3"  style="margin-top:7px">
+		
+			<input type="radio" name='gender' value='male' <%=profile.gender=='male'?checked="checked":""%>><font style="font-family:gabriola;font-size:20px;margin-right:20px" >Male</font> 
+			<input type="radio" name='gender' value='female' <%=profile.gender=='female'?checked="checked":""%> ><font style="font-family:gabriola;font-size:20px">Female</font>
+		
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Email <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="email" value=<%= profile.email%>>
+		</div>
+
+
+		<label class="control-label col-sm-2">Mobile <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="mobile" placeholder="Enter 10 digits" id="mobnum" maxlength="10" value=<%=profile.mobile%>>
+		</div>
+	</div>
+</div>
+
+	<legend >Address</legend>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Street address <span class="formspan">*<span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control col-sm-2" id="street" name="street" value=<%=profile.street%>>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Landmark <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="landmark" value=<%=profile.landmark%>>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">City <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="city" value=<%=profile.city%>>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">State <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<select name="state" class="form-control"><option value="andhrapradesh" <%= profile.state=='andhrapradesh'?selected="selected":""%>>AndhraPradesh</option>
+			<option value="telangana" <%= profile.state=='telangana'?selected="selected":""%>>Telangana</option></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Country <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="country" value="India" readonly><span>Only for India</span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2">Pincode <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="pincode" value=<%=profile.pincode%>>
+		</div>
+	</div>
+
+	<div class="form-group">
+	<input  type='submit' class='col-sm-offset-4 col-sm-1 btn btn-primary btn-large' value="Submit">
+	</div>
+
+	
+	<% }else {%>
+	<div>
+<legend>Personal Information</legend>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Name <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control col-sm-2 username" name="fullname" >
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Gender <span class="formspan">*</span></label>
+		<div class="col-sm-3"  style="margin-top:7px">
+			<input type="radio" name='gender' value='male' checked><font style="font-family:gabriola;font-size:20px;margin-right:20px" >Male</font> 
+			<input type="radio" name='gender' value='female' ><font style="font-family:gabriola;font-size:20px">Female</font>
+		
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Email <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control useremail" name="email"  >
+		</div>
+
+
+		<label class="control-label col-sm-2">Mobile <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="mobile" placeholder="Enter 10 digits" id="mobnum" maxlength="10" >
+		</div>
+	</div>
+</div>
+
+	<legend >Address</legend>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Street address <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control col-sm-2" id="strt" name="street" >
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Landmark <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="landmark" id="lm">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">City <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="city" id="cty">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">State <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<select name="state" class="form-control"><option value="andhrapradesh" >AndhraPradesh</option>
+			<option value="telangana" >Telangana</option></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Country <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="country" value="India" readonly><span>Only for India</span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-sm-2">Pincode <span class="formspan">*</span></label>
+		<div class="col-sm-3">
+			<input type="text" class="form-control" name="pincode" id="pnc">
+		</div>
+	</div>
+
+	<div class="form-group">
+	<input  type='submit' class='col-sm-offset-4 col-sm-1 btn btn-primary btn-large' id='create' value="Submit">
+	</div>
+	<%}%>
+</form>
+
+<div class="row" id="addressdiv">
+<% addresses.forEach(function(addr){%>
+<div class=" well col-sm-3 addrs" style="margin-left:1%;background-color:whitesmoke" id=<%=addr._id%>>
+<div class="shpaddr">
+<legend>
+<span><img class="defimg" src=<%= addr.defaultaddress==1?'/images/tickgreen.png':''%>></span>
+Shipping Address</legend>
+<p id="street"><%= addr.street%></p>
+<p id="landmark"><%= addr.landmark%></p>
+<p id="city"><%=addr.city%></p>
+<p id="state"><%=addr.state%></p>
+<p id="country"><%=addr.country%></p>
+<p id="pincode"><%=addr.pincode%></p>
+<input type="checkbox" class="defaultcheck" <%= addr.defaultaddress == '1'?'checked':''%> id=<%=addr._id%>><span>   Default</span>
+</div>
+<%if(addr.profileaddress!=1){%>
+
+<button class="glyphicon glyphicon-trash delete" ></button>
+
+<%}else{%>
+
+</br>
+<%}%>
+</div>
+<%})%>
+</div>
+
+
+</div>

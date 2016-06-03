@@ -1,0 +1,20 @@
+<% provide(:title,'Dating App Home') %>
+
+
+<% if signed_in? %>
+<div class="row">
+    <aside class="span10">
+        <section>
+            <%= render 'shared/micropost_form' %>
+        </section>
+        <section>
+            <%= render 'shared/show_microposts' %>
+        </section>
+    </aside>
+</div>
+<% else %>
+
+<div class="center hero-unit">
+    <%= link_to "Sign up now!" , 'user/new', class: "btn btn-large btn-primary"%>
+        <div ><p style="color:darkblue;font-weight:bold;font-size:1.5em">or Sign in with <a href="/auth/google_oauth2" data-toggle="tooltip" title="Google" data-placement="bottom"> <%=image_tag "googleicon.png", size:"25"%></a> <a href="/auth/facebook" data-toggle="tooltip" title="Facebook" data-placement="bottom"><%=image_tag "facebook.jpg", size:"25"%></a><a href="/auth/twitter" data-toggle="tooltip" title="Twitter" style="margin-left:8px" data-placement="bottom"><%=image_tag "twitter.jpg", size:"25"%></a></p></div>  
+<% end %>

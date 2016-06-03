@@ -1,0 +1,102 @@
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+$(document).ajaxStart(function(){
+	
+	$('#loadmodal').modal();
+});
+$(document).ajaxStop(function(){
+	$('#loadmodal').hide();
+})
+	var paymode;
+	$('.pay').click(function(){
+				var pay=$(this);
+		
+		
+		$.ajax({type:'Post',url:'/users/pay',dataType:'json',data:{cart_id:pay.attr('cart-id'),amount:pay.attr('total-amount'),mode:paymode,ordername:$('#ordername').val(),productid:pay.attr('product-id')},success:function(responce){
+			if(paymode == 'COD')
+			{
+				location.href='/';
+			}
+			else
+			{
+				location.href=responce.rurl;
+			}
+		},
+		error:function(err){
+			alert('error');
+		}})
+	});
+
+	$('.mode').change(function(){
+		
+		$('.pay').attr('disabled',false);
+		paymode = $(this).val();
+	});
+
+});
+</script>
+
+
+<div class="modal fade" id="loadmodal" role="dialog" aria-hidden="true" data-backdrop='static' data-keyboard='false'>
+			<div class="modal-dialog" style=" margin-left:45%;margin-top:20%">
+				<div class="modal-container">
+					
+					<div class="modal-body">
+						
+						<img src='/images/spin.gif' style="width:100px;height:100px">
+
+	        		</div>
+			        
+				</div>
+			</div>
+		</div>
+
+
+
+
+<%var total=cart.quantity*product.price%>
+<div style="background-color:white">
+
+<div class='row'>
+<div class='col-sm-8'>
+	<table class="table table-bordered">
+	<thead style="background-color:#16b594;color:white">
+		
+			<tr>
+				<th></th>
+				<th>Product</th>
+				<th>Total amount</th>
+			</tr>
+		</thead>
+		<tbody style="background-color:white">
+			<tr>
+			<td><img src="/images/uploads/<%=product.imgpath.split('\\')[3] %>"style="width:70px;height:50px"></td>
+			<td><input type='text' id="ordername" value=<%=product.brand%>-<%=product.model%>></td>
+			<td><input type='text' value=<%=total%> readonly></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="well">
+	<h3>Payment Options</h3>
+	<input type='radio' value='COD' name='payoptions' class='mode'><font style="font-size:20px">   COD (cash on delivery)</font>
+	</br>
+	<input type='radio' value='paypal' name='payoptions' class='mode'><font style="font-size:20px">   PayPal</font>
+	</div>
+</div>
+<div class="col-sm-4">
+	<div class='well'>
+		<legend>Shipping Address</legend>
+		<p id="street"><%= address.street%></p>
+		<p id="landmark"><%= address.landmark%></p>
+		<p id="city"><%=address.city%></p>
+		<p id="state"><%=address.state%></p>
+		<p id="country"><%=address.country%></p>
+		<p id="pincode"><%=address.pincode%></p>
+	</div>
+</div>
+</div>
+<button class="btn btn-large btn-primary pay" disabled cart-id=<%=cart._id%> product-id=<%=cart.productid%> total-amount=<%=total%>><font style="font-size:20px" >Pay</font></button>
+</div>

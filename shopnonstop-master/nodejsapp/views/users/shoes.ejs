@@ -1,0 +1,42 @@
+<style>
+.image img{
+	-webkit-transition: all 1s ease;
+	-moz-transaction: all 1s ease;
+}
+.image:hover img{
+	-webkit-transform:scale(1.10);
+	-moz-transform:scale(1.10);
+}
+p{font-weight:bold;padding-left:5px;padding-top:2px}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.image').click(function()
+	{
+		event.preventDefault();
+		
+		$.ajax({type:'Post',url:'/users/productdetails',data:{productid:$(this).attr('data-id')},dataType:'html',
+		success: function(responce){
+			location.href = '/users/show'; 
+		},
+		error: function(err){
+			alert('error');
+		}});
+	});
+
+
+});
+</script>
+<div class="row" >
+
+<% products.forEach(function(product){%>
+	<div class="col-sm-2" style="font-family:cambria;border-style:solid;border-width:1px;margin-right:2px;border-color:lightgrey;background-color:white">
+	<div>
+	<p ><%= product.brand%>-<%=product.model%></p>
+		<a href="#" class="image" data-id=<%=product._id%>><img class="primg" src="/images/uploads/<%=product.imgpath.split('\\')[3]%>"  style="width:185px; height:140px"></img></a>
+		<p >Rs. <%= product.price%></p>
+	</div>
+		
+	</div>
+<%})%>
+</div>

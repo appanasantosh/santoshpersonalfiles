@@ -1,0 +1,44 @@
+<h1>Here are the winners</h1>
+
+<div class="row">
+    <aside class="span5">
+
+        <section style="margin-top: 10px;">
+
+            <h1> Male winner </h1>
+        </section>
+
+
+        <section>
+
+            <% if !@contestresultForMale.nil? %>
+				<% @maleWinner = User.find_by(id:@contestresultForMale) %>
+				<h1> Congratulations <%= @maleWinner.name %> </h1> 
+		        <%= image_tag @maleWinner.userimage.url , size:"150x50"%>
+			<% end %>
+
+        </section>
+
+        
+    </aside>
+
+
+    <aside class="span5" style="margin-left: 150px;">
+
+    	<section style="margin-top: 10px;">
+
+            <h1> Female winner </h1>
+        </section>
+
+
+        <section>
+
+            <% if !@contestresultForFemale.nil? %>
+		        <% @femaleWinner = User.find_by(id:@contestresultForFemale) %>
+		        <h1> Congratulations <%= @femaleWinner.name %> </h1>
+		        <%= image_tag @femaleWinner.userimage.url , size:"150x50"%>
+			<% end %>
+
+        </section>
+
+</div>

@@ -1,0 +1,108 @@
+    
+<script type="text/javascript">
+            $(document).ready(function() {  
+              $(".select").click(function(){
+
+            maleID = $(this).data('uid');
+
+            alert(maleID);
+
+        });
+
+              $(".unselect").click(function(){
+
+            maleID = $(this).data('uid');
+
+            alert(maleID);
+
+        });
+              
+        });
+            </script>
+
+
+
+<div class="well row" >
+    <aside class="span3">
+        <section>
+            <table style="font-size:1.4em">
+                <tbody>
+
+                    <tr>
+                        <td>ID </td>
+                        <td>:</td>
+                        <td><%= user.id%></td>
+                        <% @id = user.id %>
+                    </tr>
+
+                    <tr>
+                        <td>Name </td>
+                        <td>:</td>
+                        <td><%= user.name%></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Age
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <% if !user.dateofbirth.nil? %>
+                            <%= (((Date.today - user.dateofbirth).to_i)/ 365.25).to_i %>
+                            <% end %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            Current Status
+                        </td>
+                        <td>:
+                        </td>
+                        <td>
+                            <%= user.current_status %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Qualification
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <%= user.qualification %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Occupation
+                        </td>
+                        <td>:</td>
+                        <td>
+                            <%= user.occupation %>
+                        </td>
+                    </tr>
+                    
+
+
+
+                </tbody>    
+            </table>
+        </section>
+    </aside>
+    <aside class="span2">
+        <section>
+            <% if !user.userimage.size.nil? %>
+            <%= image_tag user.userimage.url , size:"100x80"%>
+            <% end %>
+        </section>
+    </aside>
+
+    <aside class="span1" style="margin-top:50px;">
+        <section>
+            <% if(PictureSelection.find_by_user_id(user.id).nil?) %>
+            <%= button_tag  "Select", class: "btn btn-medium btn-primary" %>
+            <% else %>
+            <%= button_tag  "Unselect", class: "btn btn-medium btn-primary"  %>
+            <% end %>
+        </section>
+    </aside>
+</div>

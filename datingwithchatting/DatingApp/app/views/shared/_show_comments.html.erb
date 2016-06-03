@@ -1,0 +1,6 @@
+<% if @comment_items.any? %>
+<ol class="comments">
+	<%= render partial: 'shared/comment_item', collection: @comment_items %>
+</ol>
+<%= will_paginate @comment_items %>
+<% end %>

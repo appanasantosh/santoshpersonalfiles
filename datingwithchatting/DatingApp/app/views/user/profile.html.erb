@@ -1,0 +1,60 @@
+<% provide(:title, 'Dating App New User') %>
+<script>
+	$(document).ready(function(){
+	
+	});
+</script>
+
+<div class="row" >
+	<div class="span6 offset3">
+		<%= form_for @user,:url => {action: "profileupdate"} do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+
+			<%= f.label :name ,class: "lbl"%>
+			<%= f.text_field :name ,value: @user.name%>
+
+			<%= f.label :email ,class: "lbl"%>
+			<%= f.text_field :email ,value: @user.email, disabled: true%>
+
+			<%= f.label :dateofbirth ,class: "lbl"%>
+			<%= f.date_field :dateofbirth, value: @user.dateofbirth %>
+
+			<label name='Gender' class= "lbl">Gender :</label>
+			<div class='radio'>
+				<label name='Gender_male' style="font-size:1.2em">
+				<%= f.radio_button :gender, 'male' ,checked: @user.gender=='male'? true : false %>Male </label>
+			</div>
+			<div class='radio'>
+				<label name='Gender_female' style="font-size:1.2em"%>
+				<%= f.radio_button :gender, 'female' ,checked: @user.gender=='female'? true : false%>Female
+				</label>
+			</div>
+
+			<%= f.label :currentstatus ,class: "lbl"%>
+			<%= f.text_field :current_status, value: @user.current_status %>
+			
+			<%= f.label :qualification, class: "lbl"%>
+			<%= f.text_field :qualification, value: @user.qualification%>
+
+			<%= f.label :occupation ,class: "lbl"%>
+			<%= f.text_field :occupation, value: @user.occupation %>
+
+			<div>
+				<%= f.label :country ,class: "lbl"%>
+				<%= f.select :country, options_to_select_country,{},prompt: 'Select one', selected: @user.country ,class: 'country'%>
+			
+			</div>
+			<%= f.label :userimage ,class: "lbl"%>
+			<%= f.file_field :userimage %>
+
+			<%= f.label :password ,class: "lbl"%>
+			<%= f.password_field :password, value: @user.password%>
+
+			<%= f.label :password_confirmation, "Confirmation" ,class: "lbl"%>
+			<%= f.password_field :password_confirmation , value: @user.password%>
+
+			<%= f.submit class: "btn btn-large btn-primary"%>
+
+		<% end %>
+	</div>
+</div>

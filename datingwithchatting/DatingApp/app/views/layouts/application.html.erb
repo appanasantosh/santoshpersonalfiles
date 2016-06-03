@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content='<%= signed_in? ? current_user.id : "" %>' name='user-id'/>
+  <title><%= yield(:title) %></title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body style="background-image:url(<%= asset_path'beautifu.jpg' %>);background-size:cover;background-repeat:norepeat">
+  
+	<%= render 'layouts/header'%>
+	 
+<div class='container' style="margin-bottom:100px">
+	<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+	<%= yield %>
+
+</div>
+
+<%= render 'layouts/footer' %>
+
+
+
+</body>
+</html>

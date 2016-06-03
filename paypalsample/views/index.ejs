@@ -1,0 +1,36 @@
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('#pay').click(function()
+{
+	var pay = $(this);
+	$.ajax({type:'Post',url:'/buy',dataType:'json',data:{productdesc:pay.attr('data-description'),price:pay.attr('data-amount')},success:function(responce)
+		{
+			location.href= responce.redirecturl;
+		},
+		error:function(e)
+		{
+			alert(e);
+		}});
+});
+});
+</script>
+
+
+    <img src='/images/pal1.png' style="height:200px;width:400px"></img>
+    
+    <div class="row">
+    	<div class="col-sm-4">
+    		 <img src="/images/nikebasketball.jpg" style="height: 300px; width:300px">
+    		 
+    	</div class="col-sm-8">
+    		<h3 class="description">Nike basket ball shoes.</h3>
+    		 <h4 class="price">Rs. 4500</h4>
+    		
+    	</div>
+    </div>
+   
+	</br>
+	</br>
+    <button class="btn btn-primary btn-large" id="pay" data-description="Nike basket ball shoes" data-amount="4500">Paypal</button>
+

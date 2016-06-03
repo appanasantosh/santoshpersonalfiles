@@ -1,0 +1,53 @@
+
+  <body>
+    <% if(typeof error !== 'undefined' && error.length > 0){%>
+      <div style="background-color:white;border-radius:25px;border-style:solid; border-color:grey">
+      
+      <p style="padding-left:15px;padding-top:5px;padding-bottom:5px"><font style="font-weight:bold" color='red'><%= error%></font></p>
+        </div>
+    <% }%>
+  <h1><%= title %></h1>
+    <!-- <p>Welcome to <%= title %></p>  -->
+    <div >
+     <form class="form-horizontal" role="form" action='/users/create' method='POST'>
+    <div class='form-group'>
+      <label class="control-label col-sm-2">Full Name:</label>
+      <div class="col-sm-4">
+      <input class="form-control " type='text' name='username'>
+  	  </div>
+       
+    </div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2">E-Mail Address:</label>
+      <div class="col-sm-4">
+      <input class="form-control " type='email' name='email' >
+  </div>
+    </div> 
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2">Password:</label>
+      <div class="col-sm-4">
+      <input class="form-control " type='password' name='password'>
+  </div>
+    </div>
+    <div class='form-group'>
+      <label class="control-label col-sm-2"> Country Code:</label>
+      <div class="col-sm-4">
+      <input class="form-control " type='text' id='authy-countries', name='countryCode'>
+  </div>
+  	</div>
+
+    <div class='form-group'>
+      <label class="control-label col-sm-2"> Mobile Phone:</label>
+      <div class="col-sm-4">
+      <input class="form-control " type='text', name='phone', placeholder='651-867-5309'>
+  </div>
+  	</div>
+  	<div class="form-group">
+    <button class='btn btn-primary btn-large col-sm-offset-1' type='submit'> Create Account</button>
+</div>
+</form>
+</div>
+  </body>
+

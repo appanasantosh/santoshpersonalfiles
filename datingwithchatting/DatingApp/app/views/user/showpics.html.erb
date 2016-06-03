@@ -1,0 +1,16 @@
+<% provide(:title, 'Other Users pics') %>
+
+
+<div class="row" >
+	<div class="span6 offset3">
+		
+		
+		<% @profileimage.each do |img|%>
+			<%= image_tag img.image.url ,size:"400x400"%>
+			<hr></hr>
+		<% end %>
+		
+		
+		
+	</div>
+</div>

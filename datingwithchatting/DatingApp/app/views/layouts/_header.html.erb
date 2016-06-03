@@ -1,0 +1,141 @@
+<style >
+	 #ImportModal{
+    width: 300px;
+    height: 200px;
+    }
+
+    #ImportModal.in{
+    	position: absolute;
+    	left: 80%;
+    }
+
+  .modal-header .close {
+    background-color: #5cb85c;
+    color:white !important;
+    font-size: 20px;
+
+  }
+  .modal-header{
+    background-color: #5cb85c;
+    width: 300px;
+  }
+  #fgheader{
+    background-color: #5cb85c;
+    width: 1000px;
+  }
+
+  .modal-footer {
+    background-color: #f9f9f9;
+    width: 300px;
+  }
+</style>
+
+<script>
+$(document).ready(function(){
+	$('#import').click(function(){
+		$('#ImportModal').modal({backdrop: false})
+	});
+
+
+$("#Ok").click(function(){
+
+	if($('.mailid').val().length >= 1 && $('.password').val().length >= 1)
+	{
+		alert($('.mailid').length);
+ 		$('.cpform').submit();
+	}
+	else
+	{ 
+	
+		alert("Please enter the values");
+	}
+ });
+});
+</script>
+
+
+<header class="navbar navbar-inverse navbar-fixed-top">
+	<div class= "navbar-inner">
+		<div class= "container">
+			<%=image_tag 'gif_cupid_38.gif' ,size:"50x80", style:"float:left; position:relative"%>
+			<%= link_to "Cupid", root_path, id:"logo", style:"font-family:Nyala;"%>
+
+			<nav>
+				
+				<ul class="nav pull-right" style="font-size:1.2em">
+					<li><%= link_to "Home", root_path%></li>
+					
+					<% if signed_in? %>
+					<li><%= link_to "Users",usersprofiles_path, method: "get" %></li>
+					<li><%= link_to "Chat",chat_path, method: "get"%></li>
+						<li><%= link_to "Signout", signout_path ,method: "delete" %></li>
+            <li><%= link_to "Contest",{:controller => "contest", :action => "contestpage", id: current_user.id }, method: "get" %></li>
+						<li id="fat-menu" class="dropdown">
+              				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                			Profile <b class="caret"></b>
+              				</a>
+              				<ul class="dropdown-menu">
+
+                				<li><%= link_to "Upload Photos", picsandvideos_path, method: "get" %></li>
+                				<li><%= link_to "Settings", profile_path ,method: "get"%></li>
+                				<li><a id="import" href="#importModal">Import Contacts</a></li>
+                				<li><a href="/contacts/gmail">Import GmailContacts</a></li>
+                        <li><a href="/contacts/yahoo">Import YahooContacts</a></li>
+                        <li><%= link_to "MailBox", mailbox_inbox_path ,method: "get"%></li>
+                				<li><%= link_to "Plan Contest", plancontest_path ,method: "get"%></li>
+              				</ul>
+            			</li>
+						
+					<% else %>
+            <li><%= link_to "Contest",contestdetails_path, method: "get" %></li>
+						<li><%= link_to "Signin",{:controller => "user", :action => "signin", :signinway => "appsignin" }, method: "get" %></li>
+					<% end %>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+</header>
+<div class="modal" id="ImportModal" role="dialog" aria-hidden="true" style="display: none">
+
+
+        <!-- Modal content-->
+        <div class="modal-container">
+          <div class="modal-header" >
+            <div style="float:right">
+             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+           </div>
+           <div float="float:left" style="height: 23px">
+            <h4 class="modal-title" style="color:white !important; margin-left: 5px; margin-top:5px">Import Google contacts</h4>
+          </div>
+        </div>
+        <div class="modal-body" style="background-color:white;width:300px">
+          <form accept-charset="UTF-8" action="/user/import" method="post" class="cpform">
+            <table>
+              <tr>
+                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;padding-right:20px;font-size:1.3em">GmailId </td>
+
+                <td style="padding-top: 0.8em"><input class="mailid" type="text" name="user[gmailid]"></td>
+              </tr>
+              <tr>
+                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;padding-right:20px;font-size:1.3em">Password </td>
+                <td style="padding-top: 0.8em"><input class="password" type="password" name="user[password]"></td>
+              </tr>
+              <tr>
+                <td>
+                <input type="hidden" 
+                value="<%= form_authenticity_token() %>" 
+                name="authenticity_token"/>
+            </td>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p align="right"><button id="Ok" class="btn btn-primary active" style="margin-right:2em">Import</button>
+            <span><button style="margin-right:2em" type="button" class="btn btn-default active" data-dismiss="modal">Close</button></span></p>
+          </div>
+        </div>
+
+      </div>

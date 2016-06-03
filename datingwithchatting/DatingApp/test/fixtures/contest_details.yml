@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contest_id: 1
+  visitor_id: 1
+  profileimage_id: 1
+
+two:
+  contest_id: 1
+  visitor_id: 1
+  profileimage_id: 1

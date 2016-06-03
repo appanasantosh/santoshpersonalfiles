@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script type="text/javascript">
+    //var markers;
+    $(document).ready(function(){
+     
+      
+    });
+    function initialize(){
+      responsiveVoice.speak("Welcome to google street view");
+      var map = new google.maps.Map(document.getElementById('map'),{center: new google.maps.LatLng(22.171, 77),zoom:5});
+      
+      //map.setTilt(45);
+      var geocoder = new google.maps.Geocoder();
+      map.addListener('click',function(e){
+        //alert(e.latLng);
+        var geoc = new google.maps.Geocoder();
+        geocoder.geocode({'latLng': e.latLng}, function(results,status){
+          if(status == google.maps.GeocoderStatus.OK)
+          {
+            
+            if(results[1])
+            {
+               responsiveVoice.speak(results[1].formatted_address);
+            }
+          }
+        });
+        responsiveVoice.speak("Welcome to google street view");
+        var streetviewservice = new google.maps.StreetViewService();
+        var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
+   
+        streetviewservice.getPanorama({location: e.latLng, radius: 100}, function(data, status){
+          if(status === google.maps.StreetViewStatus.OK)
+          {
+            panorama.setPano(data.location.pano);
+            panorama.setPov({heading: 270, pitch: 0});
+            panorama.setVisible(true);
+          }
+          else
+          {
+            alert('no street view available in this range, or some error occurred');
+          }
+          map.setStreetView(panorama);
+        });
+      });
+      
+      document.getElementById('maplocation').addEventListener('click',function(){locate(geocoder, map)});
+    }
+   function locate(geocoder, resultmap)
+   {
+    var address = $('#address').val();
+   
+         var streetviewservice = new google.maps.StreetViewService();
+    var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
+  
+
+        geocoder.geocode({'address': address},function(results, status){
+          
+          if(status === google.maps.GeocoderStatus.OK)
+          {
+             resultmap.setCenter(results[0].geometry.location);
+             //alert(markers);
+             
+             var gps = results[0].geometry.location;
+             var latitude = gps.lat();
+             var longitude = gps.lng();
+             //alert(latitude+'  '+longitude);
+             var latlng = new google.maps.LatLng(latitude,longitude);
+             //alert(latlng);
+            streetviewservice.getPanorama({location: latlng, radius: 100}, function (data, status) {
+            if (status === google.maps.StreetViewStatus.OK) 
+            {
+                panorama.setPano(data.location.pano);
+                panorama.setPov({
+                heading: 270,
+                pitch: 0
+                });
+              panorama.setVisible(true);
+            
+            } 
+            else 
+            {
+                alert('no street view available in this range, or some error occurred');
+            }
+            });
+
+             resultmap.setStreetView(panorama);
+          }
+          else
+          {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+          });
+      
+    }
+
+  
+    
+    google.maps.event.addDomListener(window,'load',initialize);
+    </script>
+  
+  </head>
+  <body style="background-image: url('/images/bgh.png'); background-size:cover; background-repeat: norepeat">
+    <h1 style="color:white; font-family:gabriola; font-size:55px; margin-left:40%; text-decoration: underline">Google Street View</h1>
+    <!-- <p style="color:white ;font-family:gabriola; font-size:30px">Welcome to Street View</p> -->
+    <tts autoplay value="google street view">
+    <table>
+      <tbody>
+        <tr>
+          <td><label style="color:white ;font-family:gabriola; font-size:24px">Address :</label></td>
+          <td><textarea class="form-control"  id="address" style="resize:none; heigth:40px; width:300px"></textarea></td>
+        </tr>
+
+        <tr><td></br></td></tr>
+        <tr >
+          <td><button class= "btn btn-large btn-primary" id="maplocation">Map Location</button></td>
+        </tr>
+      </tbody>
+    </table>
+    </br>
+    <div>
+    <div id ='map' style="width:500px; height:500px; float:left"></div>
+    <div id ='pano' style="width:500px; height:500px; float:left"></div>
+  </div>
+ <!-- <input onclick='responsiveVoice.speak("Hello World");' type='button' value='P' /> -->
+  </body>
+</html>
+
+
+
+

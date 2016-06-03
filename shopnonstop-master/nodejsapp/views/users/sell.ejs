@@ -1,0 +1,134 @@
+<style>
+label{font-family:gabriola;font-size:20px}
+</style>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#image").change(function(event){
+		var img = $("#image");
+		$('.productimage').attr('src', URL.createObjectURL(event.target.files[0])); // for creating the url for the file selected in the input type file
+	});
+
+	$("#sbmt").click(function(){
+		var information = $('#prdinformation').val();
+		var description = $('#description').val();
+		var img = $("#image").val();
+		var price = $('#price').val();
+		if(information.length < 1 || description.length < 1 || img.length < 1 || price.length < 1)
+		{
+			alert('Given fields are mandatory');
+			event.preventDefault();
+		}
+		else
+		{
+			$('#sellingform').submit();
+		}
+	});
+
+	$("#price").keyup(function(e){
+		var price = $("#price");
+		
+		if(price.val().length >= 1)
+		{
+			if(isNaN(price.val()) == true)
+			{
+				price.val("");
+			}
+		}
+	});
+
+	$('#category').on('change',function(){
+		var category = $('#category');
+		var brand = $('#brand');
+	
+		var options;
+		if(category.val()== 'shoes')
+		{
+			options = '<option value="adidas">Adidas</option><option value="nike">Nike</option><option value="puma">Puma</option>';
+			brand.html(options);
+		}
+		else if(category.val()== 'watches')
+		{
+			options='<option value="casio">Casio</option><option value="oakley">Oakley</option><option value="rolex">Rolex</option>';
+			brand.html(options);
+		}
+		else
+		{
+			options='<option value="blacklabel">BlackLabel</option><option value="dackjaniel">DackJaniel</option>';
+			brand.html(options);
+		}
+	});
+});
+</script>
+
+
+	<div class="row" style="background-color:white;margin-bottom:15px">
+	<div class="col-sm-7" >
+	<h3 style="font-family:ar destine;text-decoration:underline">Product information</h3>
+	<% if(typeof message !== 'undefined' && message.length > 0) {%>
+		<div style="background:palegreen;border-radius:25px;border-style:solid; border-color:#CCF2D9">
+  		
+  		<p style="padding-left:15px;padding-top:5px;padding-bottom:5px"><font style="font-weight:bold" color='grey'><%= message%></font></p>
+  		 	</div>
+	<%} %>
+
+
+<form class="form-horizontal" role="form" id="sellingform" action="/users/createsell" method="post" enctype="multipart/form-data" style="margin-top:15px;">
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Category </label>
+		<div class="col-sm-5">
+			<select class="form-control" name="category" id="category"><option value="shoes">Shoes</option><option value="watches">Watches</option><option value="alchohol">Alchohol</option></select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2">Brand</label>
+		<div class="col-sm-5">
+			<select class="form-control" name="brand" id="brand"><option value="adidas">Adidas</option><option value="nike">Nike</option><option value="puma">Puma</option></select>
+		</div>
+	</div>
+	<div class="form-group">
+	<label class="control-label col-sm-2">Model No</label>
+		<div class="col-sm-5">
+			<input type='text' name='model' id="model" class="form-control">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Seller information</label>
+		<div class="col-sm-6">
+			<textarea rows="3" name="information" class="form-control" id="prdinformation" style="width:300px;height:100px;resize:none"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Product Description</label>
+		<div class="col-sm-6">
+			<textarea name="productdescription" id="description" class="form-control" style="width:300px;height:100px;resize:none"></textarea>
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Price(INR)</label>
+		<div class="col-sm-4">
+			<input type="text" name="price" class="form-control" id="price" placeholder="Enter numbers">
+			
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="control-label col-sm-2" >Product Image</label>
+		<div class="col-sm-5 ">
+
+			<input type="file" class="form-control" name="productimg" id="image">
+		</br>
+			<img src="" class="productimage" style="width:200px;height:160px">
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10 ">
+			<input class="btn btn-primary btn-lg" id="sbmt" type="submit" value="Submit">
+		</div>
+	</div>
+</form>
+</div>
+<div class="col-sm-5">
+	<img src="/images/sns.png" style="margin-top:40%;width:400px;height:250px">
+</div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row">
+    <aside class="span5">
+
+        <section style="margin-top: 10px;">
+
+            <%= render partial: 'shared/show_contests' %>
+        </section>
+
+
+        <section>
+
+            <% @contest = Contest.find_by_name("Photo contest") %>
+
+            <% if(@contest.lastdate >= Date.today + 2.days) %>
+
+            <%= link_to "Click here", {:controller => "contest", :action => "contest_result" }, class: "btn btn-medium btn-primary" %> for <%= @contest.name %> result
+
+
+            <% end %>
+
+        </section>
+
+        
+    </aside>
+
+
+    <aside class="span5" style="margin-left: 150px;">
+
+    	<section style="margin-top: 35px;">
+
+            <%= render partial: 'shared/visitor_reg' %>
+        </section>
+
+        <section style="margin-top: 35px;">
+
+            <%= render partial: 'shared/visitor_login' %>
+        </section>
+    </aside>
+
+</div>

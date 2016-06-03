@@ -1,0 +1,26 @@
+<li id="<%= micropost_item.id %>">
+	<span class="userpic">
+		<% if !micropost_item.user.userimage.size.nil? %>
+		<%= image_tag micropost_item.user.userimage.url, size:"30x50" , style: "float:left; position:relative"%>
+		<% end %>
+	</span>
+	<span class="user">
+		<%= micropost_item.user.name %>
+	</span>
+	<span class="content"><%= micropost_item.content %></span>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(micropost_item.created_at) %> ago.
+	</span>
+	<span class="timestamp">
+		<% find_current_micropost(micropost_item.id) %>
+		<%= render 'shared/comment_form' %>
+		
+		
+		<% current_mp = find_current_micropost(micropost_item.id) %>
+		
+		<% @comment_items = current_mp.user_comments(micropost_item.id).paginate(page: params[:page]) %>
+
+		<%= render 'shared/show_comments' %>
+	</span>
+
+</li>

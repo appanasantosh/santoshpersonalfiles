@@ -1,0 +1,8 @@
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\bin\Debug\AutomaticEmail.exe.config
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\bin\Debug\AutomaticEmail.exe
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\bin\Debug\AutomaticEmail.pdb
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\obj\Debug\AutomaticEmail.csprojResolveAssemblyReference.cache
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\obj\Debug\AutomaticEmail.exe
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\obj\Debug\AutomaticEmail.pdb
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\obj\Debug\AutomaticEmail.ProjectInstaller.resources
+c:\users\santosh\documents\visual studio 2015\Projects\AutomaticEmail\AutomaticEmail\obj\Debug\AutomaticEmail.csproj.GenerateResource.Cache

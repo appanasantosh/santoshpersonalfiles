@@ -1,0 +1,22 @@
+<%= form_for @visitor ,:url => {controller: "visitor", action: "create"} do |f|%>
+
+<h1>Visitor Registration</h1>
+
+<%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+	<aside class="span4" >
+		<section>
+			<%= f.text_field :name, placeholder: "Visitor name"  %>
+			<%= f.text_field :email, placeholder: "Visitor email"  %>
+			
+			<%= f.password_field :password, placeholder: "Passwod"%>
+
+			
+			<%= f.password_field :password_confirmation, placeholder: "Password confirmation" %>
+
+			<%= f.submit "Register", class: "btn btn-medium btn-primary", signinway: "visitorsignin" %>
+		</section>
+	</aside>
+</div>
+
+<% end %>

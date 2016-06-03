@@ -1,0 +1,33 @@
+<% provide(:title, 'Dating App gmail contacts') %>
+<script>
+	$(document).ready(function(){
+		$('#contactstable').on("click","#send",function(){
+			alert("hi");
+			alert($(this).data('name'));
+			var name = $(this).data('name');
+			var email = $(this).data('email');
+			$.post("/user/sendinvitation", { name: name, email: email }, function (data) {
+           
+            alert(data);
+        	},"text");
+		});
+	});
+</script>
+<table style="background-image:url(<%= asset_path'Elegant_Background-7.jpg' %>);background-repeat:norepeat" class="table table-bordered table-hovered" id="contactstable">
+	<tbody >
+		<% if !@importedcontacts.nil? %>
+			<% @importedcontacts.each do |contact| %>
+				<% if !contact[:email].nil? %>
+				 	<tr>
+				 		<td style="font-size:1.3em"><%= contact[:name]%></td>
+				 		<td style="font-size:1.3em"> <%= contact[:email]%></td>
+				 		<td><button class= "btn btn-medium btn-primary" id="send" data-name='<%= contact[:name]%>' data-email='<%=contact[:email]%>'>Send Request</button></td>
+				 	</tr>
+			 	<% end%>
+			<%end%>
+				
+		<% end %>
+
+	</tbody>
+
+</table>

@@ -1,0 +1,14 @@
+<li id="<%= contest.id %>">
+	<span >
+		<%= contest.name %>
+	</span>
+
+	<span style="margin-left: 20px;">
+		Contest last Date: <%= contest.lastdate.to_formatted_s(:long) %>
+	</span><br>
+
+	<span style="margin-left: 20px;">
+		Contest start date: <%= contest.contestdate.to_formatted_s(:long) %>
+	</span>
+
+</li>

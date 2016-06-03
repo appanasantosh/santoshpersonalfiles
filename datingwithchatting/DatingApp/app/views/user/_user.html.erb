@@ -1,0 +1,69 @@
+	
+<div class="well row" style="width:45%">
+		<div class="span3">
+		<table style="font-size:1.4em">
+			<tbody>
+				
+					<tr>
+						<td>Name </td>
+						<td>:</td>
+						<td><%= user.name%></td>
+					</tr>
+					<tr>
+						<td>
+							Age
+						</td>
+						<td>:</td>
+						<td>
+							<% if !user.dateofbirth.nil? %>
+							<%= (((Date.today - user.dateofbirth).to_i)/ 365.25).to_i %>
+							<% end %>
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							Current Status
+						</td>
+						<td>:
+						</td>
+						<td>
+							<%= user.current_status %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Qualification
+						</td>
+						<td>:</td>
+						<td>
+							<%= user.qualification %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Occupation
+						</td>
+						<td>:</td>
+						<td>
+							<%= user.occupation %>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<%= link_to "pics", action: 'showpics' ,userid: user.id , class:"btn btn-large btn-primary"%>
+						</td>
+					</tr>
+
+
+				
+			</tbody>	
+		</table>
+	</div>
+	<div class="span2">
+		<% if !user.userimage.size.nil? %>
+			<%= image_tag user.userimage.url , size:"100x80"%>
+		<% end %>
+
+	</div>
+	</div>

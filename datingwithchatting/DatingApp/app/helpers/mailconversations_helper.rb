@@ -1,0 +1,2 @@
+module MailconversationsHelper
+end

@@ -1,0 +1,94 @@
+
+
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+bootstrap_alert = function(){}
+	bootstrap_alert.warning = function(message){
+	$('#alert_holder').html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>');
+	}
+	$('.cartexpandcollapse').on('click',function(){
+		var expand = $(this);
+		var details = expand.parents('#cart').find('#details');
+		var state= expand.attr('btn-state');
+		if(state == 1)
+		{
+			
+			expand.attr('class','cartexpandcollapse 	glyphicon glyphicon-menu-down');
+			expand.attr('btn-state','0');
+			details.collapse('hide');
+		}
+		else
+		{
+			
+			expand.attr('class','cartexpandcollapse 	glyphicon glyphicon-menu-up');
+			expand.attr('btn-state','1');
+			details.collapse('show');
+		}
+	});
+	$('#remove').click(function(){
+	
+		var remove = $(this);
+		var parent = $(this).parents('#cart');
+		$.ajax({type:'Post',url:'/users/removecart',dataType:'json',data:{remcartid:remove.attr('cart-id')},success:function(data){
+			alert('cart removed');
+			var cartdata = $('#cartvalue');
+			var cartcount = cartdata.text()-1;
+			var count = '  '+cartcount;
+			var cartnumber = '('+cartcount+')';
+			$('#cartvalue').text(count);
+			$('.cartvalue').text(cartnumber);
+			var message='Cart removed successfully';
+			bootstrap_alert.warning(message);
+			parent.remove();
+		},
+		error:function(err){
+			alert('error');
+		}
+		});
+	});
+});
+</script>
+<div>
+<div id='alert_holder'></div>
+<h2 style="color:grey">My Cart Items <span class="cartvalue">(<%= count %>)</span></h2>
+
+<%cartsdata.forEach(function(cart){%>
+<div id='cart' style="border-style:solid;border-width:2px;border-color:lightgrey;color:grey" >
+<div class="well" style="border-radius:0px">
+<button class='cartexpandcollapse 	glyphicon glyphicon-menu-up' style="border:none;background:none;padding:0px;float:right" btn-state='1'></button>
+</div>
+	<div id='details' >
+		<div class="row">
+			<div class="col-sm-3" >
+				<img src="/images/uploads/<%=cart.productid.imgpath.split('\\')[3]%>" style="width:70px;height:70px;margin-left:10px;margin-bottom:15px">
+			</div>
+			<div class="col-sm-3">
+			<p style="margin-top:15px"><%=cart.productid.brand%>-<%=cart.productid.model%></p>
+			</div>
+			<div class="col-sm-3">
+			<p style="margin-top:15px">Rs. <%=cart.productid.price%></p>
+			</div>
+		</div>
+		<hr noshade style="border-color:lightgrey;height:1px;border-style:inset;margin-right:10px;margin-left:10px"></hr>
+		<div class="row">
+			<div class="col-sm-3">
+			<label style="margin-left:5px">Seller: <%=cart.productid.sellerinfo%></label>
+			</div>
+			
+			<div class="col-sm-3" >
+				<label style="margin-right:5px">Price: <font style="font-weight:bold">Rs.<%=cart.productid.price%></font></label>
+			</div>
+			<div class="col-sm-6" style="text-align:right">
+			<button class="btn btn-large btn-primary remcart" id="remove" cart-id=<%=cart._id%> style="margin-right:10px;margin-bottom:5px">Remove</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+</br>
+<%})%>
+</div>

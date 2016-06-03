@@ -1,0 +1,21 @@
+<h1>Visitor login</h1>
+<div class="row">
+	<aside class="span4">
+		<section>
+			<%= form_for(:visitor, :url => {controller: "visitor", action: "authenticate" }) do |f| %>
+			<%= f.text_field :email, placeholder: "Email"  %>
+
+			<%= f.password_field :password, placeholder: "Passwod"%>
+
+			
+
+			<%= f.submit "Visitor Sign in", class: "btn btn-medium btn-primary" %>
+
+			<%= link_to "User Sign in", {:controller => "user", :action => "signin", :signinway => "visitorsignin" }, class: "btn btn-medium btn-primary" %>
+			
+			<% end %>
+
+
+		</section>
+	</aside>
+</div>

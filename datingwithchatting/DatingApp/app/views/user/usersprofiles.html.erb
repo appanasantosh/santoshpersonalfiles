@@ -1,0 +1,33 @@
+<% provide(:title, 'Dating App users') %>
+<script type="text/javascript">
+	
+	
+		$(document).ready(function(){
+			$('#search').keyup(function(){
+				alert($(this).val());
+				var users = '<%= @users.to_json.html_safe%>'    // here we are converting the rails @user variable active record data into json data and to avoid &quotes in json data we have used html_safe
+				users = $.parseJSON(users);     // here we are parsing the user variable as json object to iterate through it
+				
+				 $.each(users, function(i,item) 
+				 {
+				 	
+				 	alert(item.name);
+				 });
+			});
+
+			});
+</script>
+
+
+<h1>All Users</h1>
+<input type="text" id="search"  ><span class="glyphicon glyphicon-search"></span></input>
+<h3>Number of users : <%= @users.count%></h3>
+<!-- <div class="digg_pagination" style="padding-bottom:5%">
+<%= will_paginate @users%>
+</div> -->
+<div class="digg_pagination" style="margin-bottom:10px">
+<%= will_paginate @users %>
+</div>
+<div style="padding-top:35px">
+<%= render partial: 'user', collection: @users%>
+</div>

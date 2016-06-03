@@ -1,0 +1,226 @@
+<head>
+	<style >
+
+	.modal-header .close {
+		background-color: #5cb85c;
+		color:white !important;
+		font-size: 20px;
+		
+	}
+	.modal-header{
+		background-color: #5cb85c;
+		width: 40px;
+		height: 30px;
+		padding: 0px;
+	}
+	#fgheader{
+		background-color: #5cb85c;
+		width: 200px;
+	}
+
+	.modal-footer {
+		background-color: #f9f9f9;
+		width: 400px;
+	}
+	#fgfooter{
+		width: 1000px;
+	}
+
+	</style>
+
+	<script >
+
+	$(document).ready(function(){
+		$(".datepicker").datepicker('setDate',new Date().toString());
+
+		// $("#lblcolor").click(function(){
+  // 			$("#lablecolor").modal({backdrop:false});
+		// });
+});
+	
+	</script>
+</head>
+
+
+<body>
+	<div class="container-fluid">
+		<div class="row">
+
+			<div class="col-md-2" style = "padding-top:70px;">
+
+			
+					<div class="panel-heading" style = "padding-top:3px;padding-left:15px;"> Select Week :  </div>
+					<div class="input-append date datepicker " style = "padding-top:3px;padding-left:0px;"></div>
+
+			</div>
+
+			<div class="col-md-10" style = "padding-top:5px;">
+
+				<!-- Weekly Goals main Table -->
+
+				<div class="row">
+
+					<div style = "float:left; width: 10%;padding-top:3px;padding-left:15px">
+						<button type="button" class="btn btn-primary">Expand All</button>
+					</div>
+
+					<div  style = "float:left; width: 68%;padding-top:3px ;padding-left:15px" >
+						<button type="button" class="btn btn-primary">Collapse All</button>
+					</div>
+
+					<div style = "padding-top:10px;padding-left:15px;">
+						<a align="left" class="btn btn-link" id="lblcolor" href ="#lablecolor" >Label Color</a>
+					</div>
+
+				</div>
+
+				<div class="row" style = "padding-top:3px ;padding-left:15px;">
+					<span ><font style="font-weight=bold">Goals (Including pending goals of status done) of selected week : </font></span></br>
+				</div>
+
+				<div  class="panel panel-info">
+
+					<div class="panel-heading">
+
+						<div class="row"  cellpadding="0" cellspacing="0">
+
+							<table  cellpadding="0" cellspacing="0">
+								<thead>
+									<tr>
+										<th class="text-center" style="width:20px ;padding-top:10px;">#</th>
+										<th class="text-center" style="width:50px ;padding-top:10px">Label</th>
+										<th class="text-center" style="width:260px ;padding-top:10px">Goals</th>
+										<th class="text-center" style="width:160px ;padding-top:10px">Status</th>
+										
+										<th class="text-left" style="width:320px ;padding-top:10px;padding-left:15px">Goals Added On</th>
+										<th class="text-left" style="width:115px ;padding-top:10px">Goals Done On</th>
+									</tr>
+								</thead>
+							</table>
+
+						</div>
+
+					</div>
+
+					<div class="panel-body" style="height:240px;width: auto;">
+
+						<div class="row">
+							<table class="table table-bordered table-hover" id="tab_logic">
+								<tbody id="goaltabbody">
+									<% if !@usergoals.nil? %> 
+									<% @usergoals.each do |goal| %>
+									<tr>
+										<td style="width:55px;display:none"><input  name='goalid'  id='goalid' type='text' class='form-control input-md' disabled='true' value= <%=goal.id %>></td>
+									</tr>
+									<tr>
+										<div id = "tabdatabyweek">
+										</div>
+									</tr>
+									<% end %>
+									<% end %>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-2">
+
+				<div  class="panel panel-info" >
+					<div class="panel-heading" style = "padding-top:3px;padding-left:15px;"> Select User :  </div>
+					<div class="panel-body" style="height:240px;width: auto;">
+						<div style = "padding-top:3px;padding-left:0px;"></div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-10">
+
+
+				<div  class="panel panel-info">
+
+					<div class="panel-heading">Feedback section</div>
+
+					<div class="panel-body" style="height:240px;width: auto;">
+						
+						<div style = "float:left; width: 45%;">
+							<div style = "float:left; width: 25%;padding-top:3px">Your Feedback : </div>
+							<div style = "float:left; width: 30%;padding-top:3px">images</div>
+							<div style = "float:bottom; width: 100%;padding-top:20px;">
+								<textarea class="form-control" rows="5"  id="comment"></textarea>
+							</div>
+							<div style = "float:bottom;padding-top:15px;">
+								<!-- <button type="button" class="btn btn-default">Save Feedback</button> -->
+								<%= button_to('saveuserfeedback' ,:id => 'add_goal', class: "btn btn-primary", style: "margin-top:2px;margin-bottom:3px") do%>Save Feedback
+					            <% end %>
+							</div>
+						</div>
+						
+						<div style = "float:right; width: 50%;padding-left:3px">
+							<div style = "float:left; width: 25%;padding-top:3px">Lead's Feedback : </div>
+							<div style = "float:left; width: 30%;padding-top:3px">images</div>
+							<div style = "float:bottom; width: 100%;padding-top:20px;">
+								<textarea class="form-control" rows="5"  id="comment"></textarea>
+							</div>
+							<div style = "float:bottom;padding-top:15px;">
+								<!-- <button type="button" class="btn btn-default">Save Feedback</button> -->
+								<%= button_to('saveleadfeedback' ,:id => 'add_goal', class: "btn btn-primary", style: "margin-top:2px;margin-bottom:3px") do%>Save Feedback
+					            <% end %>
+							</div>
+						</div>
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<div class="modal" id="lablecolor" role="dialog" style="display:none" aria-hidden="true">
+
+		<div class="modal-container">
+
+			<div class="modal-header" id="fgheader">
+				<div style="float-right;">
+					<button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+				</div>
+				<div float="float:left" style="height: 23px">
+					<h4 class="modal-title" style="color:white !important; margin-left: 5px; margin-top:5px"> Color Legend</h4>
+				</div>
+			</div>
+			<div class="modal-body">
+				<input  name="label" style="width:20px;background-color:green"id="label" type="text" class="form-control input-sm" >
+				<span><input  name="label" style="width:50px;" id="label" type="text" class="form-control input-sm" >Pending Goal Done</span>
+				<input  name="label" style="width:20px;background-color:yellow"id="label" type="text" class="form-control input-sm" >
+				<span><input  name="label" style="width:50px;" id="label" type="text" class="form-control input-sm" >sdfsdfg Goal Done</span>
+				<input  name="label" style="width:20px;background-color:orange"id="label" type="text" class="form-control input-sm" >
+				<span><input  name="label" style="width:50px;" id="label" type="text" class="form-control input-sm" >wtwrtwrt Goal Done</span>
+			</div>
+			<div class="modal-footer" id="fgfooter">
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+
+
+</body>

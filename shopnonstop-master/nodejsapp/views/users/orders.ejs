@@ -1,0 +1,61 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.expandcollapse').on('click',function(){
+		var expand = $(this);
+		var details = expand.parents('#order').find('#details');
+		var state= expand.attr('btn-state');
+		if(state == 1)
+		{
+			
+			expand.attr('class','expandcollapse 	glyphicon glyphicon-menu-down');
+			expand.attr('btn-state','0');
+			details.collapse('hide');
+		}
+		else
+		{
+			
+			expand.attr('class','expandcollapse 	glyphicon glyphicon-menu-up');
+			expand.attr('btn-state','1');
+			details.collapse('show');
+		}
+	});
+});
+</script>
+<div>
+<h2 style="color:grey">My Orders</h2>
+
+<%orders.forEach(function(order){%>
+<div id='order' style="border-style:solid;border-width:2px;border-color:lightgrey;color:grey" >
+<div class="well" style="border-radius:0px">
+<button class='expandcollapse 	glyphicon glyphicon-menu-up' style="border:none;background:none;padding:0px;float:right" btn-state='1'></button>
+</div>
+	<div id='details' >
+		<div class="row">
+			<div class="col-sm-3" >
+				<img src="/images/uploads/<%=order.cartid.productid.imgpath.split('\\')[3]%>" style="width:70px;height:70px;margin-left:10px;margin-bottom:15px">
+			</div>
+			<div class="col-sm-3">
+			<p style="margin-top:15px"><%=order.cartid.productid.brand%>-<%=order.cartid.productid.model%></p>
+			</div>
+			<div class="col-sm-3">
+			<p style="margin-top:15px">Rs. <%=order.amount%></p>
+			</div>
+		</div>
+		<hr noshade style="border-color:lightgrey;height:1px;border-style:inset;margin-right:10px;margin-left:10px"></hr>
+		<div class="row">
+			<div class="col-sm-3">
+			<label style="margin-left:5px">Seller: <%=order.cartid.productid.sellerinfo%></label>
+			</div>
+			<div class="col-sm-3">
+				<label>Date: <%=order.ordereddate%></label>
+			</div>
+			<div class="col-sm-6" style="text-align:right">
+				<label style="margin-right:5px">Order Total: <font style="font-weight:bold">Rs.<%=order.amount%></font></label>
+			</div>
+		</div>
+
+	</div>
+</div>
+</br>
+<%})%>
+</div>

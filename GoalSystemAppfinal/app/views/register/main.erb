@@ -1,0 +1,172 @@
+<head >
+  <style>
+  #passModal{
+    width: 400px;
+    height: 500px;
+  }
+
+  .modal-header .close {
+    background-color: #5cb85c;
+    color:white !important;
+    font-size: 20px;
+
+  }
+  .modal-header{
+    background-color: #5cb85c;
+    width: 400px;
+  }
+  #fgheader{
+    background-color: #5cb85c;
+    width: 1000px;
+  }
+
+  .modal-footer {
+    background-color: #f9f9f9;
+    width: 400px;
+  }
+  #fgfooter{
+    width: 1000px;
+  }
+
+  #goaltable {
+    margin-top: 30px
+  }
+  .btn-default {
+    background-color: #5cb85c;
+    width:70px;
+
+  }
+
+  </style>
+
+
+  <script >
+
+  function Get(section)
+  {
+    if (section == 'dialygoals') 
+      {
+        $.ajax({ 
+          type: 'Get', 
+          url: '/register/dailygoals',
+          data: {id : <%=current_user.id %>},
+          dataType:"html",
+          success: function(result){
+            $("#ResultentSection").html(result);
+          },
+          error: function() {
+            alert("Ajax error!")
+          }
+        });     
+      }
+      else if (section == 'weeklygoalsfeedback') 
+        {
+          $.ajax({ 
+          type: 'Get', 
+          url: '/register/WeeklyGoalFeedback',
+          // data: {id : <%=current_user.id %>},
+          dataType:"html",
+          success: function(result){
+            $("#ResultentSection").html(result);
+          },
+          error: function() {
+            alert("Ajax error!")
+          }
+        });
+        }
+  }
+
+
+$(document).ready(function(){
+
+  $.ajax({ 
+          type: 'Get', 
+          url: '/register/dailygoals',
+          data: {id : <%=current_user.id %>},
+          dataType:"html",
+          success: function(result){
+            $("#ResultentSection").html(result);
+          },
+          error: function() {
+            alert("Ajax error!")
+          }
+        });     
+    
+});
+
+
+
+
+</script>
+</head>
+<body style= "background-image:url(<%= asset_path 'Elegant_Background-2.jpg' %>); background-size:cover; background-repeat:norepeat; height:100%; width:100%" >
+</br>
+<div align="right" style="padding-right:2em; font-weight:bold">Logged In User : <span class="glyphicon glyphicon-user"></span> <%= current_user.name %>
+</div>
+
+<div>
+  <div style="float:left; position:absolute">
+    <a align="left" class="btn btn-link" id="cp" data-toggle="tooltip" data-placement="bottom" title="change password" href ="#passModal" >Change Password <span class="glyphicon glyphicon-pencil"></span></a>
+  </div>
+  <div style="float:right; margin-right:25px">
+    <%= button_to('logout' ,action: 'logout',:id => 'signout', class: "btn btn-primary active") do%>Logout
+    <i class="glyphicon glyphicon-log-out"></i>
+    <% end %>
+  </div>
+</div> 
+
+
+<% if flash[:changepassword] %>
+<h4><font color="blue"><%= flash[:changepassword] %></font> <h4>
+  <% end %>
+
+
+</br> 
+<div class="btn-group" style="margin-top:10px; margin-left:10px" align='left'>
+  <div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Dashboard<span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu">
+      <li><a href="#">Goals Dashboard</a></li>
+    </ul>
+  </div>
+
+  <div class="btn-group">
+    <button class="btn dropdown-toggle btn-primary " data-toggle="dropdown">
+      Goals<span class="caret"></span></span></button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#" onClick="Get('dialygoals');">Daily Goals</a></li>
+        <li><a href="#">LongTerm Goals</a></li>
+        <li><a href="#" onClick="Get('weeklygoalsfeedback');">Weekly Feedback</a></li>
+        <li><a href="#">Apprisal Form</a></li>
+      </ul>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+        Project Management<span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Section & Item</a></li>
+          <li><a href="#">Items</a></li>
+          <li><a href="#">Build</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          Knowledge Base<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Tips</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <hr></hr>
+
+
+      <div id="ResultentSection">
+      </div>
+
+
+  </body>

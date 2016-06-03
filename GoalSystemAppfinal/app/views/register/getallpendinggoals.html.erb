@@ -1,0 +1,103 @@
+ <script >
+
+
+  // $("#tab_pending").on("click","#edit", function()
+  //   {  
+  //     var text = $(this).text();
+    
+  //     if(text.toString() == "Update")
+  //     {
+  //       $(this).closest("tr").find(":input[type='text']").attr('disabled',true);
+  //       $(this).closest("tr").find("select").attr('disabled',true);
+  //       $(this).closest("tr").find("#remarks").attr('disabled',true);
+  //       $(this).closest("tr").find("#goals").attr('disabled',true);
+  //       $(this).text("Edit");
+  //       $('#dotoday').text("DoToday");
+  //     }
+  //     else
+  //     {
+  //       $(this).closest("tr").find(":input[type='text']").attr('disabled',false);
+  //       $(this).closest("tr").find("#goalid").attr('disabled',true);
+  //       $(this).closest("tr").find("#goaladdedon").attr('disabled',true);
+  //       $(this).closest("tr").find("#goaldoneon").attr('disabled',true);
+  //       $(this).closest("tr").find("#label").attr('disabled',true);
+  //       $(this).closest("tr").find("#remarks").attr('disabled',false);
+  //       $(this).closest("tr").find("#goals").attr('disabled',false);
+  //       $(this).closest("tr").find("select").attr('disabled',false);
+  //       $(this).text("Update");
+  //       $('#dotoday').text("Cancel");
+  //     }
+
+  //   });
+
+
+ $("#tab_pending").on("click","#dotoday", function()
+      {  
+        var labelcolor ='';
+        var added = '';
+          $.ajax({
+
+                  type: 'Get',
+                  url: '/register/setgoaltodotoday',
+                  dataType : 'json',
+                  data: {goalid: $(this).closest("tr").find("#goalid").val()},
+                  success: function(data){
+              $("#goaltabbody").empty();
+              $.each(data, function(i,item) {        
+              // alert(item.status +" "+ item.goal);
+              if(item.status == "Paused")
+              {
+                labelcolor = "yellow";
+              }
+              else if(item.status == "Done")
+              {
+                labelcolor = "green";
+              }
+              else
+              {
+                labelcolor = "white";
+              }
+                  $("#goaltabbody").append('<tr><td style="width:55px;display:none"><input  name="goalid"  id="goalid" type="text" class="form-control input-sm" disabled="true" value= '+item.id+' ></td> <td style="width:5%"><input  name="label" style="background-color:'+labelcolor+'"id="label" type="text" class="form-control input-sm" disabled="true"> </td> <td style="width:27%"><textarea  name="goals" id="goals" style="resize:none" type="text" placeholder="goals"  class="form-control input-sm" disabled="true" >'+item.goal+ '</textarea></td><td style="width:10%"><select  class="form-control input-sm" name="status" id="status" disabled="true" ><option value="New" '+ (item.status=="New" ? 'selected ="selected"':'')+'>New</option><option value="In progress" '+ (item.status=="In progress" ? 'selected ="selected"':'')+' >In Progress..</option><option value="Done" '+ (item.status=="Done" ? 'selected ="selected"':'')+' >Done</option><option value="Paused" '+ (item.status=="Paused" ? 'selected ="selected"':'')+' >Paused</option></select></td><td style="width:29%"><textarea name="remarks" style="resize:none;" id="remarks" placeholder="remarks"  class="form-control input-sm" disabled="true" >'+item.remarks+'</textarea></td><td style="width:10%"><input style:"padding:0" name="goaladdedon"  id="goaladdedon" type="text" class="form-control input-sm" disabled="true" value= '+item.created_at+'></td> <td style="width:10%"><input  name="goaldoneon" id="goaldoneon" type="text" class="form-control input-sm" disabled="true" value= '+item.updated_at+'></td><td style="width:9%"><button class="btn btn-info" id="edit"> Edit </button></td></tr>');
+                      });
+                  },
+                error: function() {
+                      alert("Ajax error!")
+                    }
+          }); 
+
+          
+            $(this).closest('tr').remove();       
+
+         // alert(added.val());
+
+      });
+
+
+ </script>
+
+
+
+ <table class="table table-bordered table-hover" id="tab_pending">
+           
+            <tbody>
+              <% if !@usersallpendinggoals.nil? %> 
+                <% @usersallpendinggoals.each do |goal| %>
+                <tr>
+
+                  <!-- <td style="width:10px"><button class='btn btn-default' id='edit'> Edit </button></td> -->
+
+                  <td style="width:12%"><button class='btn btn-info' id='dotoday' > DoToday </button></td>
+                  
+                  <td style="display:none;"><textarea  name='goals' id='goalid' style='resize:none' type='text' placeholder='goals'  class='form-control input-sm' disabled='true' ><%=goal.id%> </textarea></td>
+                  <td style="width:34%"><textarea  name='goals' id='goals' style='resize:none' type='text' placeholder='goals'  class='form-control input-sm' disabled='true' ><%=goal.goal%> </textarea></td>
+                  <td style="width:11%"><input   name='status' id='status' type='text' disabled='true' placeholder='label' class='form-control input-sm' value=  <% if goal.status=='New'%> 'New' <% end%> <% if goal.status=='In progress'%> 'In progress' <% end%> <% if goal.status=='Paused'%> 'Paused' <% end%> ></td>
+                  <td style="width:30%"><textarea name='remarks' style='resize:none;' id='remarks' placeholder='remarks'  class='form-control input-sm' disabled='true' ><%=goal.remarks%></textarea></td>
+                  
+                  <td style="width:13%"><input style:'padding:0' name='goaladdedon'  id='goaladdedon' type='text' class='form-control input-sm' disabled='true' value= <%=goal.created_at %>></td>
+                </tr>
+
+                <% end %>
+              <% end %>
+              <!-- <tr id="addr0"> -->
+            </tbody>
+          </table>

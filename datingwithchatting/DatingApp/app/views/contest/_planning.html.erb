@@ -1,0 +1,22 @@
+<h3>Select User's profile pics for contest</h3>
+<input type="text" id="search"  ><span class="glyphicon glyphicon-search"></span></input>
+<h3>Number of users : <%= @users.count%></h3>
+
+
+<!-- <div class="digg_pagination" style="padding-bottom:5%">
+<%= will_paginate @users%>
+</div> -->
+<div class="digg_pagination" style="margin-bottom:10px">
+<%= will_paginate @users %>
+</div>
+<div style="padding-top:35px">
+<%= render partial: 'user', collection: @users%>
+</div>
+
+
+<div>
+	<%= @id %>
+</div>
+
+
+

@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body style ="background-color: lightgray; color:white">
+    <% if @messagemode == 0 %>
+    <h1>Welcome to Dating.com, <%= @userdetails.name %></h1>
+    <p>
+      You have successfully signed up to Dating.com,
+      your LoginEmail is: <%= @userdetails.email %>.</br>
+      and Password is: <%= @userdetails.password %>.</br>
+    </p>
+    <!-- <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p> -->
+    <p>Thanks for joining and have a great day!</p>
+    <% end%>
+    <% if @messagemode == 1%>
+      <h1>Hi <%= @name%>,</h1>
+      </br><h4><%= @currentusername%> has invited you to join the Cupid app</h4>
+      <p> please click this link to register in cupid <a href="http://localhost:3000/">Cupid</a></p>
+    <% end%>
+  </body>
+</html>

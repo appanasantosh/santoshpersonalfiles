@@ -1,0 +1,7 @@
+<h1>Upcoming Contests</h1>
+<% if @contests.any? %>
+<ol class="microposts">
+	<%= render partial: 'shared/contest', collection: @contests %>
+</ol>
+<%= will_paginate @contests %>
+<% end %>

@@ -1,0 +1,36 @@
+
+ <!--  <pre>
+    Your account has been created, but we need to make sure you're a human
+    in control of the phone number you gave us. Can you please enter the 
+    verification code we just sent to your phone?</pre> -->
+    <script type="text/javascript">
+    var id= <%id%></script>
+    <% if(typeof error !== 'undefined' && error.length > 0){%>
+      <div style="background-color:white;border-radius:25px;border-style:solid; border-color:grey">
+      
+      <p style="padding-left:15px;padding-top:5px;padding-bottom:5px"><font style="font-weight:bold" color='red'><%= error%></font></p>
+        </div>
+    <% }%>
+    <% if(typeof success !== 'undefined' && error.success > 0){%>
+      <div style="background-color:papayawhip;border-radius:25px;border-style:solid; border-color:#CCF2D9">
+      
+      <p style="padding-left:15px;padding-top:5px;padding-bottom:5px"><font style="font-weight:bold" color='grey'><%= success%></font></p>
+        </div>
+    <% }%>
+  <form class='form-horizontal' role='form' action='/users/<%=id%>/verify'  method='POST'>
+    <div class='form-group ' >
+      <label class='control-label col-sm-2'> Verification Code:</label>
+      <div class=' form-group col-sm-2'>
+        <input class='form-control' type='text'  name='code'>
+      </br>
+        <button class='btn btn-primary btn-large' type='submit'> Verify Token</button>
+      </div>
+    </div>
+
+  </form>
+
+  <form class='form-horizontal' role='form' action='/users/<%=id%>/resend'  method='POST'>
+    <div class='form-group'>
+      <button class='btn.btn-link' type='submit'> Resend My Code</button>
+    </div>
+  </form>

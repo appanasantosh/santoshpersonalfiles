@@ -1,0 +1,125 @@
+<head >
+<style>
+/*.headerlogo{
+   background-image:url(<%= asset_path 'apple.jpg' %>); 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  width: 100%;
+}
+*/
+td {
+    padding-top: 0.3em;
+    padding-bottom: 0.5em;
+  }
+  header { border: 1px solid black; background: #000; overflow: hidden;margin-left: 3px}
+  header, div img {
+    width: 1360px;height: 140px
+  }
+  .ImgSlider{width: 5520px; }
+  .ImgSlider:hover {-webkit-animation-play-state: paused;}
+  .ImgSlider {
+-webkit-animation-name: slider;
+-webkit-animation-duration: 12s;
+-webkit-animation-timing-function: linear;
+-webkit-animation-iteration-count: infinite;
+
+
+}
+
+@-webkit-keyframes slider {
+0% { transform: translateX(0px); }
+20% { transform: translateX(0px); }
+25% { transform: translateX(-1360px); }
+45% { transform: translateX(-1360px); }
+50% { transform: translateX(-2730px); }
+70% { transform: translateX(-2730px); }
+75% { transform: translateX(-4080px); }
+95% { transform: translateX(-4080px); }
+100% { transform: translateX(0px); }
+}
+
+</style>
+<script type="text/javascript">
+  
+</script>
+</head>
+<body style= "background-image:url(<%= asset_path 'Elegant_Background-2.jpg' %>); background-size:cover; background-repeat:norepeat; height:100%; width:100%" >
+  
+<!-- 
+ <div class="header" style="background-image:url(<%=asset_path 'goal3.jpg'%>); height:100px">
+ 
+ </div> -->
+  <header>
+  <div class="ImgSlider">
+      <img src="<%= asset_path 'goal1.jpg' %>", alt="app">
+      <img src="<%= asset_path 'goal3.jpg' %>", alt="blue">
+      <img src="<%= asset_path 'goal1.jpg' %>", alt="white">
+      <img src="<%= asset_path 'goal3.jpg' %>", alt="web">
+  </div>
+ </header>
+  <% if flash[:logout] %>
+    <h5><font color="blue"><%= flash[:logout] %></font></h5>
+ <% end %>
+
+
+<!-- <h3 align="center" style="font-weight:bold">Sign up</h3> -->
+<div class="well" align="center" style="width:380px;height:320px ; background-image:url(<%= asset_path 'img.jpg' %>); background-size:cover; background-repeat:norepeat;position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0; margin: auto;">
+<%= form_for @user, :url => {action: "CreateUser" }, :html => {:id => "form"} do |f| %>
+<!-- <fieldset style=" border:8px; border-image:url(<%= asset_path 'border2.png' %>) 15% round; "> -->
+
+	<legend style="font-weight:bold ;font-size:18px">New Registration Information</legend>
+
+
+<table>
+<tr>
+  <td style="font-weight:bold; font-size:15px "><%= f.label "Name" %></td>
+  <td align="center"><%= f.text_field :name , :placeholder => "Name", :style => "border-radius:4px",:class => "form-control"%></td>
+</tr>
+
+<tr>
+  <td style="font-weight:bold; font-size:15px"><%= f.label "Email" %></td>
+  <td align="center"><%= f.text_field :emailid, :placeholder => "Email", :style => "border-radius:4px",:class => "form-control"%></td>
+</tr>
+
+<tr>
+  <td style="font-weight:bold; font-size:15px"><%= f.label "Password" %></td>
+  <td align="center"><%= f.password_field :password , :placeholder => "Password", :style => "border-radius:4px",:class => "form-control"%></td>
+</tr>
+
+<tr>
+  <td style="font-weight:bold; font-size:15px ; padding-right:50px" ><%= f.label "Confirmation" %></td>
+  <td align="center"><%= f.password_field :password_confirmation , :placeholder => "Confirmation", :style => "border-radius:4px",:class => "form-control"%></td>
+</tr>
+
+</table>
+</br>
+
+<span ><%=button_tag "Register",class: "btn btn-primary btn-block active", style: " font-weight:bold ;margin-bottom:0px" , :id => 'reg'%></span>
+</br>
+
+<!-- </fieldset> -->
+</br>
+
+</div>
+<p style="font-size:18px;font-weight:bold; margin-top:10px;">
+<%= link_to 'Signin' ,{action: :signin},{style: "color: blue"}%>
+</p>
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><font color="red"><%= pluralize(@user.errors.count, "error") %> prohibited this register from being saved:</font></h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><font color="red"><%= message %></font></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% end %>
+</br>
+
+</body>

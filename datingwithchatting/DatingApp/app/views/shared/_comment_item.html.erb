@@ -1,0 +1,15 @@
+<li id="<%= comment_item.id %>">
+	<span class="userpic">
+		<% if !comment_item.user.userimage.size.nil? %>
+		<%= image_tag comment_item.user.userimage.url, size:"30x50" , style: "float:left; position:relative"%>
+		<% end %>
+	</span>
+	<span class="user">
+		<%= comment_item.user.name %>
+	</span>
+	<span class="content"><%= comment_item.content %></span>
+	<span class="timestamp">
+		Commented <%= time_ago_in_words(comment_item.created_at) %> ago.
+	</span>
+
+</li>

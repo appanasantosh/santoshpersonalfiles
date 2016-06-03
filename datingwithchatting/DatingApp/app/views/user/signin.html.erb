@@ -1,0 +1,21 @@
+<% provide(:title, 'Dating App Signin') %>
+<style type="text/css">
+label{
+	font-size: 1.4em;
+}
+</style>
+<h1>Sign in</h1>
+<div class="row">
+	<div class="span6 offset1">
+		<%= form_for(:user, :url => {action: "authenticate",:signinway => @signinway  }) do |f| %>
+			<%= f.label :email %>
+			<%= f.text_field :email %>
+
+			<%= f.label :password %>
+			<%= f.password_field :password%>
+
+			<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+			<%=@signinway%>
+		<% end %>
+	</div>
+</div>

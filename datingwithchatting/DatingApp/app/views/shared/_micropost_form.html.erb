@@ -1,0 +1,19 @@
+<%= form_for(@micropost) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+<div class="row">
+	<aside class="span2">
+		<section>
+			<% if !@current_user.userimage.size.nil? %>
+			<%= image_tag @current_user.userimage.url, size:"70x120" , style: "float:left; position:relative"%>
+			<% end %>
+		</section>
+	</aside>
+	<aside class="span8">
+		<section>
+			<%= f.text_area :content, placeholder: "What's on your mind?", style: "width: 600px; height: 100px; resize: none"  %>
+			<%= f.submit "Post", class: "btn btn-medium btn-primary" %>
+		</section>
+	</aside>
+</div>
+
+<% end %>

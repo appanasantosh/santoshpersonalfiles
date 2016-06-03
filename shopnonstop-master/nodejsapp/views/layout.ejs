@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta name="viewport" content:"width = device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0 ,minimum-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+	<link rel="shortcut icon" type="image/png" href="/images/sh12.png">
+  </head>
+  <script type="text/javascript">
+  $(document).ready(function(){
+  		$('.products').click(function(){
+  			event.preventDefault();
+  			$.ajax({type:'Post',url:'/users/products',data:{category: $(this).attr('id')},
+  			dataType:"html",
+  			success:function(responce)
+  			{
+  				
+  				location.href = '/users/product';
+  			},
+  			error:function(e){
+  				alert('error');
+  			}
+  		});
+  		});
+        $(window).load(function() { $("#spinner").fadeOut("slow"); })
+  	});
+  </script>
+  <style type="text/css">
+ 
+   
+     #spinner
+    {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(/images/cube.gif) 50% 50% no-repeat #333;
+    }
+    .products{color:white;}
+</style>
+<!-- style="background-color:#ffffb3" -->
+  <body style="background-color: #ffffff">         
+  	<header >
+  <% include partials/header.ejs %> 
+</header>
+  <div style="margin-top:-20px">
+    <div >
+  	<div style="font-family:ar destine;width:100%;text-align:center;color:#4B5165;" >
+  		
+		   
+   
+      <img src='/images/legend4.gif' style="height:200px;width:50%"/>
+		
+	 
+	</div>
+	<div class="btn-group-horizontal well" style="font-size:15px;background-color:#009999"  >
+		<a href="#" class="products" id='shoes' style="margin-right:20px">Shoes</a>
+		<a href="#" class="products" style="margin-right:20px" id='watches'>Watches</a>
+		<a href="#" class="products" id='alchohol'>Alcohols</a>
+	</div>
+</div>
+	<hr ></hr>
+  <div id='spinner'></div>
+   <%- body %>
+</div>
+  </body>
+</html>

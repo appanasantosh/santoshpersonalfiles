@@ -1,0 +1,205 @@
+<style>
+
+.navbar .nav > li > a{color:white}
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+
+$('#cartvalue').click(function(){
+	var isauthenticated = <%=isauth%>;
+
+	if(typeof isauthenticated === 'undefined' || isauthenticated == false)
+	{
+
+		event.preventDefault();
+	}
+});
+$("#register").click(function(){
+	
+	$("#regmodal").modal({backdrop:true});
+});
+
+$('#logindialog').click(function(){
+
+	$('#loginmodal').modal({backdrop:true});
+});
+$("#Ok").click(function(){
+	var password = $("#pass").val();
+	var cnfrmpass = $("#cnfrmpass").val();
+	var username = $("#name").val();
+	var email = $("#email").val();
+	var plen = password.length;
+	var pclen = cnfrmpass.length;
+	if(password.length < 1 || cnfrmpass.length < 1 || username.length < 1 || email.length < 1)
+	{
+		alert("Given fields are mandatory.");
+		event.preventDefault();
+
+	}
+	else
+	{
+		
+		if($('#pass').val() != $('#cnfrmpass').val())
+		{
+			alert("Password and Confirm Password don't match");
+			event.preventDefault();
+			
+		}
+		else
+		{
+			$('.regform').submit();
+		}
+	}
+});
+
+$('#loginbtn').click(function(){
+
+	var emailid = $('#emailid').val();
+	var password = $('#password').val();
+	if(emailid.length < 1 || password.length < 1)
+	{
+		alert('Please enter emailid and password');
+		event.preventDefault();
+	}
+	else
+	{
+	
+		$('.loginform').submit();
+	}
+});
+});
+</script>
+		<nav class="navbar navbar-default navbar-fixed-top " style="background-color:#21759b">
+			<div class="container-fluid">
+				
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-left" style="font-size:15px">
+						<li><a href="/" >Home</a></li>
+						<li><a href="/aboutus" >About</a></li>
+						<li><a href="#" >Contact</a></li>
+						<% if(typeof isauth === 'undefined' || isauth == false){%>
+						<li><a id="register" href="#regmodal" >Register</a></li>
+						<li><a id="logindialog" href="#loginmodal" >Login</a></li>
+						<% } %>
+						<% if(typeof isauth !== 'undefined' &&  isauth) { %>
+						<li><a href="/users/logout" >Logout</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                			Settings <b class="caret"></b>
+              				</a>
+              				<ul class="dropdown-menu">
+              					<li><a href="/users/profile">Profile</a></li>
+              					<li><a href="/users/sell">Sell</a><li>
+              					<li><a href="/users/orders">Orders</a></li>
+              				</ul>
+						</li>
+						<% } %>
+						<li style="nav pull-right">
+						<a id="cartvalue" href="/users/usercarts" class="glyphicon glyphicon-shopping-cart" style="font-weight:bold;font-size:20px">
+						<%if(typeof isauth !== 'undefined' && isauth){%>
+						 <%= count %>
+						
+						<%}else{%>0
+						<%}%>
+						</a></li>
+						
+
+					</ul>
+					<% if(typeof isauth !== 'undefined' &&  isauth) {%>
+					<% if(typeof user !== undefined && user) {%>
+					<ul class="nav navbar-nav navbar-right">
+						<li >
+						<span class="glyphicon glyphicon-user" style="margin-top:17px;margin-right:5%;font-family:gabriola;font-weight:bold;font-size:20px;color:white">Logged user : <%= user.username%></span>
+						</li>
+					</ul>
+					<%}%>
+					<% } %>
+				</div>
+			
+			</div>
+		</nav>
+
+
+		<div class="modal fade" id="regmodal" role="dialog" aria-hidden="true" >
+			<div class="modal-dialog modal-md" style=" margin-left:30%;margin-top:10%">
+				<div class="modal-container">
+					<div class="modal-header" style="background:mediumaquamarine">
+						<div style="float:right">
+	             			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+	           			</div>
+			           <div float="float:left" style="height: 23px">
+			            <h4 class="modal-title" style=" margin-left: 5px; margin-top:5px;font-family:ar destine;font-size:20px;color:white"> Register <span class="glyphicon glyphicon-user"></span></h4>
+			          </div>
+					</div>
+					<div class="modal-body" style="background-color:aliceblue;">
+						<form  action="/users/register" role="form" method="post" class="regform" style="font-family:gabriola;font-size:20px">
+				            <table style="margin-left:10%">
+				              
+				              <tr>
+				                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">User Name</td>
+				                <td style="padding-left:5px"><input id="name" class="form-control"  name="username" style="font-size:20px"></td>
+				              </tr>
+				              <tr>
+				                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">Email</td>
+				                <td style="padding-left:5px"><input id="email" class="form-control"  name="email" style="font-size:20px"></td>
+				              </tr>
+				              <tr>
+				                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">Password</td>
+				                <td style="padding-left:5px"><input id="pass" class="form-control"  type="password" name="password" style="font-size:20px"></td>
+				              </tr>
+				              <tr>
+				                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">Password Confirmation</td>
+				                <td style="padding-left:5px"><input id="cnfrmpass" class="form-control"  type="password" name="passwordconfirm" style="font-size:20px"></td>
+				              </tr>
+				             
+
+				            </table>
+	          			</form>
+	        		</div>
+			        <div class="modal-footer" style="background:mediumaquamarine; font-family:gabriola;font-weight:bold" >
+			          <p align="right"><button id="Ok" class="btn btn-primary btn-lg active" style="margin-right:2em">Register</button>
+			            <span><button style="margin-right:2em" type="button" class="btn btn-default btn-lg active" data-dismiss="modal">Close</button></span></p>
+			          </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="loginmodal" role="dialog" aria-hidden="true" >
+			<div class="modal-dialog modal-md" style=" margin-left:30%;margin-top:10%">
+				<div class="modal-container">
+					<div class="modal-header" style="background:mediumaquamarine">
+						<div style="float:right">
+	             			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+	           			</div>
+			           <div float="float:left" style="height: 23px">
+			            <h4 class="modal-title" style="color:white !important; margin-left: 5px; margin-top:5px;font-family:ar destine;font-size:20px"> Login <span class="glyphicon glyphicon-log-in"></span></h4>
+			          </div>
+					</div>
+					<div class="modal-body" style="background-color:aliceblue;">
+						<form  action="/users/login" role="form" method="post" class="loginform" style="font-family:gabriola;font-size:20px">
+				            <table style="margin-left:18%">
+				              
+				          
+				              <tr>
+				                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">Email</td>
+				                <td style="padding-left:5px"><input id="emailid" class="form-control"  name="username" style="font-size:20px"></td>
+				              </tr>
+				              <tr>
+				                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">Password</td>
+				                <td style="padding-left:5px"><input id="password" class="form-control"  type="password" name="password" style="font-size:20px"></td>
+				              </tr>
+				            
+				             
+
+				            </table>
+	          			</form>
+	        		</div>
+			        <div class="modal-footer" style="background:mediumaquamarine; font-family:gabriola;font-weight:bold" >
+			          <p align="right"><button id="loginbtn" class="btn btn-primary btn-lg active" style="margin-right:2em">Login</button>
+			            <span><button style="margin-right:2em" type="button" class="btn btn-default btn-lg active" data-dismiss="modal">Close</button></span></p>
+			          </div>
+				</div>
+			</div>
+		</div>
+		

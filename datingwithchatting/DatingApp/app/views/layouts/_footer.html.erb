@@ -1,0 +1,37 @@
+
+
+<script>
+$(document).ready(function(){
+  $("#mute").click(function(){
+    var imgsrc = $("#sound").attr("src");
+    if(imgsrc.indexOf("volume") > -1)
+    {
+      $("#music").trigger('pause');
+      $("#sound").attr("src","<%= image_path "glyphicons-183-mute.png"%>");
+    }
+    if(imgsrc.indexOf("mute") > -1)
+    {
+      $("#music").trigger('play');
+      $("#sound").attr("src","<%= image_path "glyphicons-185-volume-up.png"%>");
+    } 
+   });
+});
+</script>
+<footer class="footer navbar navbar-inverse navbar-fixed-bottom ">
+ 
+  <audio autoplay preload loop id='music'>
+    <source src='audio/audi.mp3' type='audio/mp3' />
+  </audio>
+	<div class="navbar-inner">
+ 		<div class="container">
+
+  			<nav>
+    			<ul >
+      				<li><%= link_to "About" ,"#"%></li>
+      				<li><%= link_to "Contact" ,"#"%></li>
+     				 <button style="margin-left:10px" id="mute"><%=image_tag "glyphicons-185-volume-up.png" ,id:"sound", size:"20x20"%></button>
+    			</ul>
+  			</nav>
+  		</div>
+	</div>
+</footer>

@@ -1,0 +1,471 @@
+<html>
+<head>
+  <script >
+
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+    $(window).load(function(){
+ // alert("Santosh");
+
+         $.ajax({ 
+          type: 'Get', 
+          url: '/register/getallpendinggoals',
+          data: {timespan : "Yesterday"},
+          dataType:"html",
+          success: function(result){
+            $("#tab_pending").html(result);
+          },
+          error: function() {
+            alert("Ajax error!")
+          }
+        });     
+
+});
+    $(".datepicker").datepicker('setDate',new Date().toString());
+
+    $(".datepicker").on("changeDate",function(){
+      var todaysdate = $.datepicker.formatDate("yy-mm-dd", new Date());
+      var mode =0;
+      var date = $(this).datepicker("getDate");
+      fdate = $.datepicker.formatDate("yy-mm-dd",date);
+      if(fdate == todaysdate)
+      {
+        $("#add_goal").attr("disabled",false);
+        mode=1;
+      }
+      else if(fdate != todaysdate)
+      {
+        $("#add_goal").attr("disabled",true);
+        mode=2;
+      }
+      var labelcolor ='';
+      $.ajax({ 
+        type: 'GET', 
+        url: '/register/loadondate',
+        dataType : 'json', 
+        data: {selecteddate: fdate, loadmode: mode},
+        success: function(data){
+          $("#goaltabbody").empty();
+          $.each(data, function(i,item) {        
+              // alert(item.status +" "+ item.goal);
+              if(item.status == "Paused")
+              {
+                labelcolor = "yellow";
+              }
+              else if(item.status == "Done")
+              {
+                labelcolor = "green";
+              }
+              
+                  $("#goaltabbody").append('<tr><td style="width:55px;display:none"><input  name="goalid"  id="goalid" type="text" class="form-control input-sm" disabled="true" value= '+item.id+' ></td> <td style="width:5%"><input  name="label" style="background-color:'+labelcolor+'"id="label" type="text" class="form-control input-sm" disabled="true"> </td> <td style="width:27%"><textarea  name="goals" id="goals" style="resize:none" type="text" placeholder="goals"  class="form-control input-sm" disabled="true" >'+item.goal+ '</textarea></td><td style="width:10%"><select  class="form-control input-sm" name="status" id="status" disabled="true" ><option value="New" '+ (item.status=="New" ? 'selected ="selected"':'')+'>New</option><option value="In progress" '+ (item.status=="In progress" ? 'selected ="selected"':'')+' >In Progress..</option><option value="Done" '+ (item.status=="Done" ? 'selected ="selected"':'')+' >Done</option><option value="Paused" '+ (item.status=="Paused" ? 'selected ="selected"':'')+' >Paused</option></select></td><td style="width:29%"><textarea name="remarks" style="resize:none;" id="remarks" placeholder="remarks"  class="form-control input-sm" disabled="true" >'+item.remarks+'</textarea></td><td style="width:10%"><input style:"padding:0" name="goaladdedon"  id="goaladdedon" type="text" class="form-control input-sm" disabled="true" value= '+item.created_at+'></td> <td style="width:10%"><input  name="goaldoneon" id="goaldoneon" type="text" class="form-control input-sm" disabled="true" value= '+item.updated_at+'></td><td style="width:9%"><button class="btn btn-info" id="edit"> Edit </button></td></tr>');
+            });
+
+},
+error: function() {
+  alert("Ajax error!")
+}
+});
+});
+
+$("#tab_logic").on("change","#status",function(){
+  var statusvalue = $(this).closest("tr").find("#status").val();
+  if(statusvalue == "Paused")
+  {
+    $(this).closest("tr").find("#label").css("background-color","yellow");
+  }
+  else if(statusvalue == "Done")
+  {
+    $(this).closest("tr").find("#label").css("background-color","green");
+  }
+}); 
+
+$("#cp").click(function()
+{
+  $('#passModal').modal({backdrop:false});
+
+});
+
+$("#futuregoal").click(function(){
+  $("#futuregoalmodal").modal({backdrop:false});
+});
+
+
+$("#Ok").click(function(){
+  data = $('.password').val();
+  var len = data.length;
+
+  if(len < 1) {
+    alert("Password cannot be blank");
+            // Prevent form submission
+            event.preventDefault();
+          }
+
+          else if($('.password').val() != $('.confpass').val()) 
+          {
+            alert("Password and Confirm Password don't match");
+            // Prevent form submission
+            event.preventDefault();
+          }
+          else
+          {
+            $('.cpform').submit();
+          }
+        });
+
+     // $("#add_row").click(function(){
+     //  // $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input  name='label"+i+"' id='label' type='text' placeholder='label' class='form-control input-md' disabled='true' /> </td><td><input  name='goals"+i+"' id='goals' type='text' placeholder='goals'  class='form-control input-md' disabled='true'></td><td><select  class='form-control input-md' name='status"+i+"' id='status' disabled='true'><option value='New'>New</option><option value='In progress'>In Progress..</option><option value='Done'>Done</option><option value='Paused'>Paused</option></select></td><td><input  name='remarks"+i+"' id='remarks' type='text' placeholder='remarks'  class='form-control input-md' disabled='true'></td><td><button class='btn btn-default' id='edit'>edit </button></td>");
+
+     //  // $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+     //  // i++; 
+     //  alert("hi");
+     //  $.ajax({ 
+     //              type: 'POST', 
+     //              url: '/register/addusergoal', 
+     //              // data: {goalid: $(this).closest("tr").find("#goalid").val(), label : $(this).closest("tr").find("#label").val(),goal : $(this).closest("tr").find("#goals").val(), status : $(this).closest("tr").find("#status").val(), remarks : $(this).closest("tr").find("#remarks").val()},
+     //              error: function() {
+     //                    alert("Ajax error!")
+     //                  }
+     //          });
+     //    });
+     //for dynamically added row with button
+    // $(document).on("click", "#edit", function()  
+      $("#tab_logic").on("click","#edit", function()
+      {  
+        var text = $(this).text();
+
+        if(text.toString() == "update")
+        {
+          $(this).closest("tr").find(":input[type='text']").attr('disabled',true);
+          $(this).closest("tr").find("select").attr('disabled',true);
+          $(this).closest("tr").find("#remarks").attr('disabled',true);
+          $(this).closest("tr").find("#goals").attr('disabled',true);
+          $(this).text("Edit");
+          var value = $(this).closest("tr").find("#goals").val();
+
+          $.ajax({ 
+            type: 'POST', 
+            url: '/register/updategoal', 
+                  // data: {label : $(this).closest("tr").find("#label").val(),goal : $(this).closest("tr").find("#goals").val(), status : $(this).closest("tr").find("#status").val(), remarks : $(this).closest("tr").find("#remarks").val()},
+                  data: {goalid: $(this).closest("tr").find("#goalid").val(), 
+                  label : $(this).closest("tr").find("#label").val(),
+                  goal : $(this).closest("tr").find("#goals").val(), 
+                  status : $(this).closest("tr").find("#status").val(), 
+                  remarks : $(this).closest("tr").find("#remarks").val()},
+                  error: function() {
+                    alert("Ajax error!")
+                  }
+                });
+        // alert(value);
+        // alert($(this).closest("tr").find("#status").val());
+      }
+      else
+      {
+        $(this).closest("tr").find(":input[type='text']").attr('disabled',false);
+        $(this).closest("tr").find("#goalid").attr('disabled',true);
+        $(this).closest("tr").find("#goaladdedon").attr('disabled',true);
+        $(this).closest("tr").find("#goaldoneon").attr('disabled',true);
+        $(this).closest("tr").find("#label").attr('disabled',true);
+        $(this).closest("tr").find("#remarks").attr('disabled',false);
+        $(this).closest("tr").find("#goals").attr('disabled',false);
+        $(this).closest("tr").find("select").attr('disabled',false);
+        $(this).text("update");
+        
+      }
+    });
+
+$('.selectpicker').on('change', function()
+{
+  var text = $(this).find("option:selected").val();
+
+  $.ajax({ 
+    type: 'Get', 
+    url: '/register/getallpendinggoals',
+    dataType:"html",
+    data:{timespan:text},
+    success: function(result){
+      $("#tab_pending").html(result);
+    },
+    error: function() {
+      alert("Ajax error!")
+    }
+  });     
+});
+
+
+});
+    
+  </script>
+</head>
+<body>
+
+
+                     
+
+
+
+                      <!-- Complete Dialy Goals section -->
+
+
+
+                      <!-- Daily Goals section Cahnge Password dialog -->
+
+
+      <div class="modal" id="passModal" role="dialog" aria-hidden="true" style="display: none">
+
+
+        <!-- Modal content-->
+        <div class="modal-container">
+          <div class="modal-header" >
+            <div style="float:right">
+             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+           </div>
+           <div float="float:left" style="height: 23px">
+            <h4 class="modal-title" style="color:white !important; margin-left: 5px; margin-top:5px"> Change Password</h4>
+          </div>
+        </div>
+        <div class="modal-body" style="background-color:white;width:400px">
+          <form accept-charset="UTF-8" action="/register/passwordchange" method="post" class="cpform">
+            <table>
+              <tr>
+                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">Old Password</td>
+                <td><input type="password" name="user[oldpassword]"></td>
+              </tr>
+              <tr>
+                <td style="font-weight:bold; padding-top: 0.8em; padding-bottom: 0.8em;">New Password</td>
+                <td><input class="password" type="password" name="user[password]"></td>
+              </tr>
+              <tr>
+                <td style="font-weight:bold;padding-top: 0.8em; padding-bottom: 0.8em; padding-right:20px">Confirm Password</td>
+                <td ><input class="confpass" type="password" name="user[password_confirmation]" ></td>
+                <input type="hidden" 
+                value="<%= form_authenticity_token() %>" 
+                name="authenticity_token"/>
+              </tr>
+
+            </table>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <p align="right"><button id="Ok" class="btn btn-primary active" style="margin-right:2em">Ok</button>
+            <span><button style="margin-right:2em" type="button" class="btn btn-default active" data-dismiss="modal">Close</button></span></p>
+          </div>
+        </div>
+
+      </div>
+
+                      <!-- Daily Goals section Cahnge Password dialog -->
+
+
+
+
+
+                      <!-- Daily Goals section LongtermGoal dialog -->
+
+
+      <div class="modal" id="futuregoalmodal" role="dialog" style="display:none" aria-hidden="true">
+        <div class="modal-container">
+          <div class="modal-header" id="fgheader">
+            <div style="float-right;">
+              <button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div float="float:left" style="height: 23px">
+              <h4 class="modal-title" style="color:white !important; margin-left: 5px; margin-top:5px"> Your future Goals</h4>
+            </div>
+          </div>
+          <div class="modal-body" style="background-color:white;width:1000px">
+            <!-- <form accept-charset="UTF-8" action="/register/addfuturegoal" method="post" class="futuregoalform"> -->
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td>#</td>
+                  <td>LongTerm Goals</td>
+                  <td>Status</td>
+                  <td>Notes</td>
+                  <td>Target Start Date</td>
+                  <td>Target End Date</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td>
+                    <textarea style="resize:none" class="form-control"></textarea>
+                  </td>
+                  <td>
+                    <select class="form-control">
+                      <option value='New'>New</option>
+                      <option value='In progress'>In Progress..</option>
+                      <option value='Done'>Done</option>
+                      <option value='Paused'>Paused</option>
+
+                    </select>
+                  </td>
+                  <td>
+                    <textarea style="resize:none" class="form-control"></textarea>
+                  </td>
+                  <td>
+                    <input type="date" class="form-control">
+                  </td>
+                  <td>
+                    <input type="date" class="form-control">
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            <!-- </form> -->
+          </div>
+          <div class="modal-footer" id="fgfooter">
+          </div>
+        </div>
+      </div>
+
+
+                      <!-- Daily Goals section Cahnge Password dialog -->
+
+
+
+
+                      <!-- Daily Goals section -->
+
+      <div class="container-fluid" id="goaltable">
+        <div class="row">
+          <div class="col-md-2">
+           <div class="input-append date datepicker " ></div>
+         </div>
+         <div class="clearfix visible-md"></div>
+         <div class="col-md-10"  >
+
+
+           <div class="well" style=" padding: 2px;">
+            <span class="label label-info"><font style="font-weight=bold">Goals : </font></span></br>
+            <%= button_to('addusergoal' ,action: 'addusergoal',:id => 'add_goal', class: "btn btn-primary active", style: "margin-top:2px;margin-bottom:3px") do%>Add
+            <i class="glyphicon glyphicon-plus-sign"></i>
+            <% end %>
+                <div style="height:40px;background-color:lightblue" cellpadding="0" cellspacing="0">
+              <table  style="background-color:lightblue; width:100%;" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:50px ;padding-top:10px; display:none">#</th>
+                    <th class="text-center" style="width:5% ;padding-top:10px">Label</th>
+                    <th class="text-center" style="width:27% ;padding-top:10px">Goals</th>
+                    <th class="text-center" style="width:10% ;padding-top:10px">Status</th>
+                    <th class="text-center" style="width:29% ;padding-top:10px">Remarks</th>
+           
+                    <th class="text-left" style="width:10% ;padding-top:10px">Added On</th>
+                    <th class="text-left" style="width:10% ;padding-top:10px">Done On</th>
+                    <th class="text-left" style="width:9% ;padding-top:10px">Edit</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+              <div style="overflow: auto;height: 200px;">
+              <table class="table table-bordered table-hover" id="tab_logic">
+               
+                <tbody id="goaltabbody">
+                  <% if !@usergoals.nil? %> 
+                    <% @usergoals.each do |goal| %>
+                    <tr>
+                      <td style="width:55px;display:none"><input  name='goalid'  id='goalid' type='text' class='form-control input-md' disabled='true' value= <%=goal.id %>></td>
+                      <td style="width:5%"><input  name='label' <% if goal.status=='Done'%>style='background-color:green' <% elsif goal.status=='Paused'%>style='background-color:yellow'<%end%>id='label' type='text' class='form-control input-sm' disabled='true' value= <%=goal.label%>> </td>
+                      <td style="width:27%"><textarea  name='goals' id='goals' style='resize:none' type='text' placeholder='goals'  class='form-control input-sm' disabled='true' ><%=goal.goal%> </textarea></td>
+                      <td style="width:10%"><select  class='form-control input-sm' name='status' id='status' disabled='true' > 
+                        <option value='New' <% if goal.status=='New'%>selected ='selected' <% end%>>New</option>
+                        <option value='In progress' <% if goal.status=='In progress' %> selected ='selected' <% end%>>In Progress..</option>
+                        <option value='Done' <% if goal.status=='Done'%>selected ='selected' <% end%>>Done</option>
+                        <option value='Paused' <% if goal.status=='Paused' %>selected ='selected' <% end%>>Paused</option></select></td>
+                      <td style="width:29%"><textarea name='remarks' style='resize:none;' id='remarks' placeholder='remarks'  class='form-control input-sm' disabled='true' ><%=goal.remarks%></textarea></td>
+                      
+                      <td style="width:10%"><input style:'padding:0' name='goaladdedon'  id='goaladdedon' type='text' class='form-control input-sm' disabled='true' value= <%=goal.created_at %>></td>
+                      <td style="width:10%"><input  name='goaldoneon' id='goaldoneon' type='text' class='form-control input-sm' disabled='true' value= <%=goal.updated_at %>></td>
+                      <td style="width:9%"><button class='btn btn-info' id='edit'> Edit </button></td>
+                    </tr>
+
+                    <% end %>
+                  <% end %>
+                  <!-- <tr id="addr0"> -->
+                </tbody>
+              </table>
+            </div>
+            </div>
+
+
+            <div class="well" style=" padding: 2px;">
+              <div style = "float:left; width: 21%;padding-top:3px;padding-left:3px">
+                Select Pending Goal's Time Span : </br>
+              </div>
+
+              <div  style = "float:left; width: 20%;padding-top:3px " >
+
+               <select  class='selectpicker' style="width:173px ;margin-bottom:0px; " name='status' id='pendingGoals_Timespan'  >
+
+                <option value='All' >All</option>
+                <option value='Yesterday' selected ='selected'  >Yesterday</option>
+                <option value='Last week' >Last week</option>
+                <option value='Last One Month' >Last One Month</option>
+                <option value='Last Three Months' >Last Three Months</option>
+                <option value='Last Six Months' >Last Six Months</option>
+              </select>
+
+            </div>
+
+
+            <div style = "float:left; width: 43%;padding-top:3px">
+              Total No. Of Pending Goals : <%= @pendingcount%>
+            </div>
+
+            <div >
+              <a align="left" class="btn btn-link" id="futuregoal" href ="#futuregoalmodal" >Your Long Term Goals</a>
+            </div>
+
+
+            <!-- Pending Goals Table header -->
+
+
+              <div style="height:40px;background-color:lightblue;width: auto;" cellpadding="0" cellspacing="0">
+              <table  style="background-color:lightblue;width: 100%;" cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:12% ;padding-top:10px">#</th>
+                    <th class="text-center" style="width:34% ;padding-top:10px;  ">Pending Goals</th>
+                    <th class="text-center" style="width:11% ;padding-top:10px; ">Status</th>
+                    <th class="text-center" style="width:30% ;padding-top:10px;  ">Remarks</th>
+           
+                    <th class="text-left" style="width:13%px; padding-top:10px;padding-left:10px ">Added On</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+
+
+
+            <!-- Pending Goals Table  -->
+
+
+            <div style="overflow: auto;height: 300px;">
+              <table class="table table-bordered table-hover" id="tab_pending">
+
+              </table>
+            </div> 
+
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+
+                      <!-- Daily Goals section -->
+
+
+
+
+
+                      <!-- Complete Dialy Goals section -->
+
+
+
+
+</body>
+</html>
