@@ -1,0 +1,5 @@
+D:\PMDataMigration\trunk\PMDataMigration\ImportContract\bin\Debug\PMImportContract.dll
+D:\PMDataMigration\trunk\PMDataMigration\ImportContract\bin\Debug\PMImportContract.pdb
+D:\PMDataMigration\trunk\PMDataMigration\ImportContract\obj\Debug\PMImportContract.dll
+D:\PMDataMigration\trunk\PMDataMigration\ImportContract\obj\Debug\PMImportContract.pdb
+D:\PMDataMigration\trunk\PMDataMigration\ImportContract\obj\Debug\PMImportContract.csprojResolveAssemblyReference.cache

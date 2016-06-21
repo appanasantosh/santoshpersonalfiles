@@ -1,0 +1,9 @@
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\obj\Debug\PMImportImplementation.csprojResolveAssemblyReference.cache
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\bin\Debug\PMImportImplementation.dll
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\bin\Debug\PMImportImplementation.pdb
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\bin\Debug\log4net.dll
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\bin\Debug\PMImportContract.dll
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\bin\Debug\PMImportContract.pdb
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\bin\Debug\log4net.xml
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\obj\Debug\PMImportImplementation.dll
+D:\PMDataMigration\trunk\PMDataMigration\ImportImplementation\obj\Debug\PMImportImplementation.pdb

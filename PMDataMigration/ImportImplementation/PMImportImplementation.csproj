@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{1128C4DA-BB25-4829-B5AE-EE8B7F508CB8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PMImportImplementation</RootNamespace>
+    <AssemblyName>PMImportImplementation</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\CertifiedPayNotes.cs" />
+    <Compile Include="Entities\CertifiedPayReports.cs" />
+    <Compile Include="Entities\CertifiedPayRoll.cs" />
+    <Compile Include="Entities\CloseOut.cs" />
+    <Compile Include="Entities\CloseOutDistributionList.cs" />
+    <Compile Include="Entities\ConversationContacts.cs" />
+    <Compile Include="Entities\ConversationQuestion.cs" />
+    <Compile Include="Entities\Conversations.cs" />
+    <Compile Include="Entities\COPR.cs" />
+    <Compile Include="Entities\COPRDistributionList.cs" />
+    <Compile Include="Entities\Documents.cs" />
+    <Compile Include="Entities\FieldReport.cs" />
+    <Compile Include="Entities\FieldReportCompany.cs" />
+    <Compile Include="Entities\FieldReportSubVendors.cs" />
+    <Compile Include="Entities\Folders.cs" />
+    <Compile Include="Entities\InstructionDistributionList.cs" />
+    <Compile Include="Entities\Instructions.cs" />
+    <Compile Include="Entities\Letter.cs" />
+    <Compile Include="Entities\LetterDistributionList.cs" />
+    <Compile Include="Entities\MeetingAttendees.cs" />
+    <Compile Include="Entities\MeetingItems.cs" />
+    <Compile Include="Entities\Meetings.cs" />
+    <Compile Include="Entities\MeetingTopic.cs" />
+    <Compile Include="Entities\MeetingTopicAndMeetingItems.cs" />
+    <Compile Include="Entities\PunchList.cs" />
+    <Compile Include="Entities\PunchListItem.cs" />
+    <Compile Include="Entities\PunchListItemCompany.cs" />
+    <Compile Include="Entities\RFI.cs" />
+    <Compile Include="Entities\RFIDistributionList.cs" />
+    <Compile Include="Entities\SubmittalDistributionList.cs" />
+    <Compile Include="Entities\SubmittalItems.cs" />
+    <Compile Include="Entities\Submittals.cs" />
+    <Compile Include="Entities\Transmittal.cs" />
+    <Compile Include="Entities\TransmittalDistributionList.cs" />
+    <Compile Include="Entities\TransmittalItem.cs" />
+    <Compile Include="PMEnum.cs" />
+    <Compile Include="PMImportImplement.cs" />
+    <Compile Include="PMMigrationLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CertifiedPayRollRepository.cs" />
+    <Compile Include="Repository\CloseOutRepository.cs" />
+    <Compile Include="Repository\ConversationRepository.cs" />
+    <Compile Include="Repository\COPRRepository.cs" />
+    <Compile Include="Repository\DocumentRepository.cs" />
+    <Compile Include="Repository\FieldReportRepository.cs" />
+    <Compile Include="Repository\InstructionRepository.cs" />
+    <Compile Include="Repository\LetterRepository.cs" />
+    <Compile Include="Repository\MeetingsRepository.cs" />
+    <Compile Include="Repository\PunchListRepository.cs" />
+    <Compile Include="Repository\RFIRepository.cs" />
+    <Compile Include="Repository\SubmittalsRepository.cs" />
+    <Compile Include="Repository\TransmittalRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImportContract\PMImportContract.csproj">
+      <Project>{979611F9-AC1B-4AE9-8767-78005D63CDD0}</Project>
+      <Name>PMImportContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
