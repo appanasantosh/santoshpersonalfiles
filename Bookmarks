@@ -1,0 +1,948 @@
+{
+   "checksum": "2b7aa300222cd929d8d8557701104a17",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13080749916295056",
+            "id": "6",
+            "name": "c# - The communication object, System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/15846997/the-communication-object-system-servicemodel-channels-servicechannel-cannot-be"
+         }, {
+            "date_added": "13082565023693137",
+            "id": "9",
+            "name": "ruby - I need to generate uuid for my rails application. What are the options(gems) I have? - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/18228324/i-need-to-generate-uuid-for-my-rails-application-what-are-the-optionsgems-i-h"
+         }, {
+            "date_added": "13082648694636752",
+            "id": "12",
+            "name": "JavaScript Modal Popup Window - CodeProject",
+            "type": "url",
+            "url": "http://www.codeproject.com/Articles/589445/JavaScript-Modal-Popup-Window"
+         }, {
+            "date_added": "13082710355091244",
+            "id": "15",
+            "name": "User Authentication in Ruby on Rails - CodeProject",
+            "type": "url",
+            "url": "http://www.codeproject.com/Articles/575551/User-Authentication-in-Ruby-on-Rails"
+         }, {
+            "date_added": "13082726550202280",
+            "id": "16",
+            "name": "JqueryUI Dialog",
+            "type": "url",
+            "url": "http://www.tutorialspoint.com/jqueryui/jqueryui_dialog.htm"
+         }, {
+            "date_added": "13082726911907249",
+            "id": "17",
+            "name": "Edit fiddle - JSFiddle",
+            "type": "url",
+            "url": "http://jsfiddle.net/62yJ4/1/"
+         }, {
+            "date_added": "13082733339868241",
+            "id": "18",
+            "name": "Form Helpers — Ruby on Rails Guides",
+            "type": "url",
+            "url": "http://guides.rubyonrails.org/form_helpers.html"
+         }, {
+            "date_added": "13082736761987457",
+            "id": "19",
+            "name": "Method: ActionView::Helpers::UrlHelper#button_to — Documentation for rails (3.2.8)",
+            "type": "url",
+            "url": "http://www.rubydoc.info/docs/rails/3.2.8/ActionView%2FHelpers%2FUrlHelper%3Abutton_to"
+         }, {
+            "date_added": "13083052944093826",
+            "id": "22",
+            "name": "Bootstrap 3 Tutorial - An Ultimate Guide for Beginners",
+            "type": "url",
+            "url": "http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/"
+         }, {
+            "date_added": "13083071879884795",
+            "id": "23",
+            "name": "Ruby Plus bootstrap",
+            "type": "url",
+            "url": "https://rubyplus.com/articles/1371"
+         }, {
+            "date_added": "13083081666395338",
+            "id": "24",
+            "name": "Twitter Bootstrap 3 in a Rails 4 Application",
+            "type": "url",
+            "url": "http://www.erikminkel.com/2013/09/01/twitter-bootstrap-3-in-a-rails-4-application/"
+         }, {
+            "date_added": "13083082354300329",
+            "id": "25",
+            "name": "twbs/bootstrap-sass · GitHub",
+            "type": "url",
+            "url": "https://github.com/twbs/bootstrap-sass"
+         }, {
+            "date_added": "13083082488211183",
+            "id": "26",
+            "name": "What is Bootstrap 3 - A Brief Introduction",
+            "type": "url",
+            "url": "http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-introduction.php"
+         }, {
+            "date_added": "13083082500643727",
+            "id": "27",
+            "name": "Bootstrap Wells",
+            "type": "url",
+            "url": "http://www.w3schools.com/bootstrap/bootstrap_wells.asp"
+         }, {
+            "date_added": "13083232281159896",
+            "id": "30",
+            "name": "javascript - ExecJS::RuntimeError on Windows trying to follow rubytutorial - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/12520456/execjsruntimeerror-on-windows-trying-to-follow-rubytutorial"
+         }, {
+            "date_added": "13083247290443646",
+            "id": "33",
+            "name": "jquery - How to get Twitter Bootstrap 3 to work with Rails 4 and Heroku - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/19417942/how-to-get-twitter-bootstrap-3-to-work-with-rails-4-and-heroku"
+         }, {
+            "date_added": "13083255106779105",
+            "id": "34",
+            "name": "Twitter Bootstrap: dropdown - JSFiddle",
+            "type": "url",
+            "url": "http://jsfiddle.net/vandalo/gyzRY/"
+         }, {
+            "date_added": "13083341163996411",
+            "id": "37",
+            "name": "jquery - Why Can't I delete TR from delete button inside TD - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/27531541/why-cant-i-delete-tr-from-delete-button-inside-td"
+         }, {
+            "date_added": "13083662897421037",
+            "id": "40",
+            "name": "AJAX on Rails Tutorial",
+            "type": "url",
+            "url": "http://www.tutorialspoint.com/ruby-on-rails/rails-and-ajax.htm"
+         }, {
+            "date_added": "13083845839017532",
+            "id": "43",
+            "name": "ActiveRecord::QueryMethods",
+            "type": "url",
+            "url": "http://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html#method-i-where"
+         }, {
+            "date_added": "13083851087619963",
+            "id": "44",
+            "name": "jQuery DatePicker + Bootstrap 3 - JSFiddle",
+            "type": "url",
+            "url": "http://jsfiddle.net/jasenhk/4g9u5/"
+         }, {
+            "date_added": "13083859799275011",
+            "id": "45",
+            "name": "render vs. redirect_to in Ruby on Rails 3 at MarkUs Blog",
+            "type": "url",
+            "url": "http://blog.markusproject.org/?p=3313"
+         }, {
+            "date_added": "13084015296960314",
+            "id": "48",
+            "name": "Using jQuery to build table rows from Ajax response(Json) - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/17724017/using-jquery-to-build-table-rows-from-ajax-responsejson"
+         }, {
+            "date_added": "13084015339368672",
+            "id": "49",
+            "name": "html - If-statement inside jquery Append() - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/12898400/if-statement-inside-jquery-append"
+         }, {
+            "date_added": "13084284548947037",
+            "id": "52",
+            "name": "Action Controller Overview — Ruby on Rails Guides",
+            "type": "url",
+            "url": "http://guides.rubyonrails.org/action_controller_overview.html"
+         }, {
+            "date_added": "13084871115877443",
+            "id": "55",
+            "name": "How to delect unexpected dead client in wcf duplex - Microsoft Technologies",
+            "type": "url",
+            "url": "http://go4answers.webhost4life.com/Example/delect-unexpected-dead-client-wcf-67814.aspx"
+         }, {
+            "date_added": "13085041017432406",
+            "id": "58",
+            "name": "Ruby on Rails Architectural Design - Adrian Mejia’s Blog",
+            "type": "url",
+            "url": "http://adrianmejia.com/blog/2011/08/11/ruby-on-rails-architectural-design/"
+         }, {
+            "date_added": "13085499280859725",
+            "id": "61",
+            "name": "A List of SMTP and POP3 Servers",
+            "type": "url",
+            "url": "https://www.arclab.com/en/kb/email/list-of-smtp-and-pop3-servers-mailserver-list.html"
+         }, {
+            "date_added": "13085502085921735",
+            "id": "62",
+            "name": "SSL vs TLS vs STARTTLS | FastMail",
+            "type": "url",
+            "url": "https://www.fastmail.com/help/technical/ssltlsstarttls.html"
+         }, {
+            "date_added": "13085761177608020",
+            "id": "65",
+            "name": "Chapter 2: A demo app | Ruby on Rails Tutorial (4.0 version & 2nd Ed.) | Softcover.io",
+            "type": "url",
+            "url": "http://rails-4-0.railstutorial.org/book/demo_app"
+         }, {
+            "date_added": "13085838774484308",
+            "id": "68",
+            "name": "Partials in Ruby on Rails - RichOnRails.com",
+            "type": "url",
+            "url": "https://richonrails.com/articles/partials-in-ruby-on-rails"
+         }, {
+            "date_added": "13086102331454200",
+            "id": "71",
+            "name": "Ruby on Rails Security Guide — Ruby on Rails Guides",
+            "type": "url",
+            "url": "http://guides.rubyonrails.org/security.html"
+         }, {
+            "date_added": "13086106438930921",
+            "id": "72",
+            "name": "Rails Routing from the Outside In — Ruby on Rails Guides",
+            "type": "url",
+            "url": "http://edgeguides.rubyonrails.org/routing.html"
+         }, {
+            "date_added": "13086363505202006",
+            "id": "75",
+            "name": "Use Facebook Graph APIs in Rails with Omniauth-facebook and Koala",
+            "type": "url",
+            "url": "http://www.gotealeaf.com/blog/facebook-graph-api-using-omniauth-facebook-and-koala"
+         }, {
+            "date_added": "13086364836296940",
+            "id": "76",
+            "name": "How to Use Omniauth to Authenticate your Users - Tuts+ Code Article",
+            "type": "url",
+            "url": "http://code.tutsplus.com/articles/how-to-use-omniauth-to-authenticate-your-users--net-22094"
+         }, {
+            "date_added": "13086423813307915",
+            "id": "79",
+            "name": "Download a cacert.pem for RailsInstaller · GitHub",
+            "type": "url",
+            "url": "https://gist.github.com/fnichol/867550"
+         }, {
+            "date_added": "13086426763308376",
+            "id": "80",
+            "name": "Omniauth Facebook Error - Faraday::Error::ConnectionFailed - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/10775640/omniauth-facebook-error-faradayerrorconnectionfailed"
+         }, {
+            "date_added": "13086429060229674",
+            "id": "81",
+            "name": "mkdynamic/omniauth-facebook · GitHub",
+            "type": "url",
+            "url": "https://github.com/mkdynamic/omniauth-facebook"
+         }, {
+            "date_added": "13086449301565391",
+            "id": "82",
+            "name": "Using OAuth 2.0 for Web Server Applications | Google Identity Platform | Google Developers",
+            "type": "url",
+            "url": "https://developers.google.com/identity/protocols/OAuth2WebServer"
+         }, {
+            "date_added": "13086449314806093",
+            "id": "83",
+            "name": "Google Authentication in Ruby On Rails - RichOnRails.com",
+            "type": "url",
+            "url": "https://richonrails.com/articles/google-authentication-in-ruby-on-rails"
+         }, {
+            "date_added": "13086450898302954",
+            "id": "84",
+            "name": "Google Integration Using Devise and Omniauth In Rails App. | Ruby on Rails not used",
+            "type": "url",
+            "url": "https://deepakrip007.wordpress.com/2013/11/05/google-integration-using-devise-and-omniauth-in-rails-app/"
+         }, {
+            "date_added": "13086702411275577",
+            "id": "87",
+            "name": "Sign In With Twitter using Omniauth and the Twitter gem | GoRails - GoRails",
+            "type": "url",
+            "url": "https://gorails.com/episodes/omniauth-twitter-sign-in"
+         }, {
+            "date_added": "13086703036180640",
+            "id": "88",
+            "name": "php - Twitter App not taking localhost and 127.0.0.1 as CallbackUrl - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/14372311/twitter-app-not-taking-localhost-and-127-0-0-1-as-callbackurl"
+         }, {
+            "date_added": "13086711392783501",
+            "id": "89",
+            "name": "Learn Ruby The Hard Way",
+            "type": "url",
+            "url": "http://learnrubythehardway.org/book/ex18.html"
+         }, {
+            "date_added": "13086772208616573",
+            "id": "92",
+            "name": "Deploying To Heroku - Intro To Rails",
+            "type": "url",
+            "url": "http://docs.railsbridge.org/intro-to-rails/deploying_to_heroku"
+         }, {
+            "date_added": "13086880675367847",
+            "id": "95",
+            "name": "Realtime Mini-Chat with Rails and Faye",
+            "type": "url",
+            "url": "http://www.sitepoint.com/realtime-mini-chat-rails-faye/"
+         }, {
+            "date_added": "13087300820508584",
+            "id": "98",
+            "name": "c# - How do you do Impersonation in .NET? - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/125341/how-do-you-do-impersonation-in-net"
+         }, {
+            "date_added": "13087302538061552",
+            "id": "99",
+            "name": "Programmatic impersonation in C# | Fresh Click Media",
+            "type": "url",
+            "url": "http://freshclickmedia.co.uk/2008/11/programmatic-impersonation-in-c/"
+         }, {
+            "date_added": "13087382886783183",
+            "id": "102",
+            "name": "Login with Facebook, Twitter and Google in Meteor | Meteor.js blog written by @elfoslav",
+            "type": "url",
+            "url": "http://meteor.hromnik.com/blog/login-with-facebook-twitter-and-google-in-meteor"
+         }, {
+            "date_added": "13087401376268320",
+            "id": "103",
+            "name": "Roll Your Own Authentication | The Meteor Chef",
+            "type": "url",
+            "url": "http://themeteorchef.com/recipes/roll-your-own-authentication/#tmc-configuring-third-party-services"
+         }, {
+            "date_added": "13087401386963956",
+            "id": "104",
+            "name": "redirect_uri mismatch: Google Oauth - help - Meteor forums",
+            "type": "url",
+            "url": "https://forums.meteor.com/t/redirect-uri-mismatch-google-oauth/5940"
+         }, {
+            "date_added": "13087402678788842",
+            "id": "105",
+            "name": "Less secure apps - Account settings",
+            "type": "url",
+            "url": "https://www.google.com/settings/security/lesssecureapps"
+         }, {
+            "date_added": "13087469644289598",
+            "id": "108",
+            "name": "date_field (ActionView::Helpers::FormHelper) - APIdock",
+            "type": "url",
+            "url": "http://apidock.com/rails/v4.2.1/ActionView/Helpers/FormHelper/date_field"
+         }, {
+            "date_added": "13087551288113635",
+            "id": "111",
+            "name": "#88 Dynamic Select Menus - RailsCasts",
+            "type": "url",
+            "url": "http://railscasts.com/episodes/88-dynamic-select-menus"
+         }, {
+            "date_added": "13087903122819923",
+            "id": "114",
+            "name": "Advanced Social Features in Ruby on Rails Course",
+            "type": "url",
+            "url": "http://teamtreehouse.com/library/advanced-social-features-in-ruby-on-rails"
+         }, {
+            "date_added": "13087918450162523",
+            "id": "115",
+            "name": "Simple Multi-File Uploads With Paperclip | Travis Berry",
+            "type": "url",
+            "url": "https://www.travisberry.com/2013/02/simple-multi-file-uploads-with-paperclip/"
+         }, {
+            "date_added": "13087921288603856",
+            "id": "116",
+            "name": "FFMPEG: Installing FFMPEG On Windows - YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/watch?v=xcdTIDHm4KM"
+         }, {
+            "date_added": "13087985046679766",
+            "id": "119",
+            "name": "What should be basic features of any dating website? - Content - The SitePoint Forums",
+            "type": "url",
+            "url": "http://community.sitepoint.com/t/what-should-be-basic-features-of-any-dating-website/37745"
+         }, {
+            "date_added": "13088176795964025",
+            "id": "122",
+            "name": "Gmail Like Chat Application in Ruby on Rails | Joseph Ndungu",
+            "type": "url",
+            "url": "http://josephndungu.com/tutorials/gmail-like-chat-application-in-ruby-on-rails"
+         }, {
+            "date_added": "13088526510060925",
+            "id": "125",
+            "name": "Websockets - Let's talk about real time! — Inspire",
+            "type": "url",
+            "url": "http://www.inspire.nl/blog/websockets-let-s-talk-about-real-time"
+         }, {
+            "date_added": "13088605858776806",
+            "id": "128",
+            "name": "#316 Private Pub - RailsCasts",
+            "type": "url",
+            "url": "http://railscasts.com/episodes/316-private-pub?view=asciicast"
+         }, {
+            "date_added": "13088612068955199",
+            "id": "129",
+            "name": "Building a Chat with Rails, Faye and private_pub",
+            "type": "url",
+            "url": "http://www.thegreatcodeadventure.com/hello-or-building-a-chatting-app-with-rails/"
+         }, {
+            "date_added": "13088685987616474",
+            "id": "132",
+            "name": "An Introduction to Faye slides.",
+            "type": "url",
+            "url": "http://www.slideshare.net/dazoakley/an-introduction-to-faye"
+         }, {
+            "date_added": "13088686362625727",
+            "id": "133",
+            "name": "ruby - Private messages with Faye and Rails - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/27139950/private-messages-with-faye-and-rails"
+         }, {
+            "date_added": "13088687332324172",
+            "id": "134",
+            "name": "Faye: Simple pub/sub messaging for the web",
+            "type": "url",
+            "url": "http://faye.jcoglan.com/security/csrf.html"
+         }, {
+            "date_added": "13088698638076728",
+            "id": "135",
+            "name": "Working with Cookies in jQuery",
+            "type": "url",
+            "url": "http://www.sitepoint.com/eat-those-cookies-with-jquery/"
+         }, {
+            "date_added": "13088784757464063",
+            "id": "138",
+            "name": "WPF Tutorial : Beginning - CodeProject",
+            "type": "url",
+            "url": "http://www.codeproject.com/Articles/140611/WPF-Tutorial-Beginning"
+         }, {
+            "date_added": "13088871131318161",
+            "id": "141",
+            "name": "Rails-gem - Using Omnicontacts to get mail contacts from Google - Qiita",
+            "type": "url",
+            "url": "http://qiita.com/vinhnglx/items/53ade9f730d21a7a84d4"
+         }, {
+            "date_added": "13088871188266587",
+            "id": "142",
+            "name": "febuiles/gmail-contacts · GitHub",
+            "type": "url",
+            "url": "https://github.com/febuiles/gmail-contacts"
+         }, {
+            "date_added": "13088871362602673",
+            "id": "143",
+            "name": "Fetching Cotacts from Gmail, Yahoo and Hotmail | Puneet Pandey's Weblog",
+            "type": "url",
+            "url": "http://puneetpandey.com/2008/09/26/fetching-cotacts-from-gmail-yahoo-and-hotmail/"
+         }, {
+            "date_added": "13089196418748414",
+            "id": "146",
+            "name": "What is RESTful Development?",
+            "type": "url",
+            "url": "http://xml.sys-con.com/node/841615/mobile"
+         }, {
+            "date_added": "13089295485476738",
+            "id": "149",
+            "name": "Walkthrough: Configuring Yahoo Sign-In for ASP.NET MVC 5 and Visual Studio 2013",
+            "type": "url",
+            "url": "http://www.oauthforaspnet.com/providers/yahoo/guides/aspnet-mvc5/"
+         }, {
+            "date_added": "13089304564962348",
+            "id": "150",
+            "name": "Diego81/omnicontacts · GitHub",
+            "type": "url",
+            "url": "https://github.com/Diego81/omnicontacts"
+         }, {
+            "date_added": "13090509490527091",
+            "id": "153",
+            "name": "https://www.visualsvn.com/visualsvn/doc/VisualSVN.pdf",
+            "type": "url",
+            "url": "https://www.visualsvn.com/visualsvn/doc/VisualSVN.pdf"
+         }, {
+            "date_added": "13090668078836531",
+            "id": "156",
+            "name": "Google OAuth 2: access data from a Google user in your application - by Blue Mango Geek",
+            "type": "url",
+            "url": "http://geek.bluemangointeractive.com/google-oauth-2-enable-your-application-to-access-data-from-a-google-user/"
+         }, {
+            "date_added": "13090684973148025",
+            "id": "157",
+            "name": "T269618 - TableView ShowCheckBoxSelectorColumn: Hide/disable header checkbox | DevExpress Support Center",
+            "type": "url",
+            "url": "https://www.devexpress.com/Support/Center/Question/Details/T269618"
+         }, {
+            "date_added": "13090943886047997",
+            "id": "160",
+            "name": "Google OAuth2 and Rails – Zach Schneider",
+            "type": "url",
+            "url": "https://schneid.io/blog/google-oauth2-and-rails.html"
+         }, {
+            "date_added": "13091029948096455",
+            "id": "163",
+            "name": "Integrating Log In With PayPal into Rails | PayPal & Braintree | Developer - Blog",
+            "type": "url",
+            "url": "https://devblog.paypal.com/integrating-log-in-with-paypal-into-rails/"
+         }, {
+            "date_added": "13091117002724871",
+            "id": "166",
+            "name": "Paypal in Rails, Part 1 - Basic Checkout",
+            "type": "url",
+            "url": "http://www.gotealeaf.com/blog/basic-paypal-checkout-processing-in-rails"
+         }, {
+            "date_added": "13091117010133978",
+            "id": "167",
+            "name": "#141 PayPal Basics - RailsCasts",
+            "type": "url",
+            "url": "http://railscasts.com/episodes/141-paypal-basics"
+         }, {
+            "date_added": "13091196020760469",
+            "id": "170",
+            "name": "Pipes (Windows)",
+            "type": "url",
+            "url": "https://msdn.microsoft.com/en-us/library/windows/desktop/aa365780(v=vs.85).aspx"
+         }, {
+            "date_added": "13091262322609367",
+            "id": "173",
+            "name": "Working with JavaScript in Rails — Ruby on Rails Guides",
+            "type": "url",
+            "url": "http://guides.rubyonrails.org/working_with_javascript_in_rails.html"
+         }, {
+            "date_added": "13091262439941042",
+            "id": "174",
+            "name": "Top 31 Model View Controller(MVC) Interview Questions",
+            "type": "url",
+            "url": "http://career.guru99.com/top-31-model-view-controllermvc-interview-questions/"
+         }, {
+            "date_added": "13091796513081363",
+            "id": "177",
+            "name": "Inheritance Strategy in Code-First",
+            "type": "url",
+            "url": "http://www.entityframeworktutorial.net/code-first/inheritance-strategy-in-code-first.aspx"
+         }, {
+            "date_added": "13091796520975605",
+            "id": "178",
+            "name": "DBContext",
+            "type": "url",
+            "url": "http://www.entityframeworktutorial.net/EntityFramework4.3/dbcontext-vs-objectcontext.aspx"
+         }, {
+            "date_added": "13092228134805184",
+            "id": "181",
+            "name": "Ruby Quickstart | Drive REST API | Google Developers",
+            "type": "url",
+            "url": "https://developers.google.com/drive/web/quickstart/ruby"
+         }, {
+            "date_added": "13092240265606093",
+            "id": "182",
+            "name": "How to integrate Google Maps in a Rails app | Yangtheman",
+            "type": "url",
+            "url": "http://blog.yangtheman.com/2009/08/27/how-to-integrate-google-maps-in-a-rails-app/"
+         }, {
+            "date_added": "13092240463190285",
+            "id": "183",
+            "name": "Use Google Maps with Rails",
+            "type": "url",
+            "url": "http://www.sitepoint.com/use-google-maps-rails/"
+         }, {
+            "date_added": "13092324874535909",
+            "id": "186",
+            "name": "Events | Google Maps Javascript API | Google Developers",
+            "type": "url",
+            "url": "https://developers.google.com/maps/documentation/javascript/events"
+         }, {
+            "date_added": "13092324885614783",
+            "id": "187",
+            "name": "Google Maps JavaScript API V3 Reference | Google Maps Javascript API | Google Developers",
+            "type": "url",
+            "url": "https://developers.google.com/maps/documentation/javascript/reference?hl=en"
+         }, {
+            "date_added": "13092327341276112",
+            "id": "188",
+            "name": "Reverse Geocoding: Get address from Latitude and Longitude using Google Maps Geocoding API",
+            "type": "url",
+            "url": "http://www.aspsnippets.com/Articles/Reverse-Geocoding-Get-address-from-Latitude-and-Longitude-using-Google-Maps-Geocoding-API.aspx"
+         }, {
+            "date_added": "13092411451832208",
+            "id": "191",
+            "name": "10.10.111.167/GoalSystem/Forms/Accounts/Profile.aspx",
+            "type": "url",
+            "url": "http://10.10.111.167/GoalSystem/Forms/Accounts/Profile.aspx"
+         }, {
+            "date_added": "13092481736845019",
+            "id": "194",
+            "name": "An Absolute Beginner's Guide to Node.js",
+            "type": "url",
+            "url": "http://blog.modulus.io/absolute-beginners-guide-to-nodejs"
+         }, {
+            "date_added": "13092500709288275",
+            "id": "195",
+            "name": "Introduction to Node.js",
+            "type": "url",
+            "url": "http://www.slideshare.net/vikasing/introduction-to-nodejs-11730771?next_slideshow=1"
+         }, {
+            "date_added": "13092755897779479",
+            "id": "198",
+            "name": "S.O.L.I.D: The First 5 Principles of Object Oriented Design | Scotch",
+            "type": "url",
+            "url": "https://scotch.io/bar-talk/s-o-l-i-d-the-first-five-principles-of-object-oriented-design"
+         }, {
+            "date_added": "13092758623945723",
+            "id": "199",
+            "name": "www.baboon.ir/uploads/2015/06/The.Node_.Beginner.Book_.pdf",
+            "type": "url",
+            "url": "http://www.baboon.ir/uploads/2015/06/The.Node_.Beginner.Book_.pdf"
+         }, {
+            "date_added": "13092931558538286",
+            "id": "202",
+            "name": "Node.js Event Loop",
+            "type": "url",
+            "url": "http://www.tutorialspoint.com/nodejs/nodejs_event_loop.htm"
+         }, {
+            "date_added": "13093102666372073",
+            "id": "205",
+            "name": "The Top 10 Javascript MVC Frameworks Reviewed",
+            "type": "url",
+            "url": "http://codebrief.com/2012/01/the-top-10-javascript-mvc-frameworks-reviewed/"
+         }, {
+            "date_added": "13093105253052248",
+            "id": "206",
+            "name": "JSON Howto",
+            "type": "url",
+            "url": "http://www.w3schools.com/json/json_eval.asp"
+         }, {
+            "date_added": "13093353904176493",
+            "id": "209",
+            "name": "[zatmit.com]OReilly.Web.Development.with.Node.and.Express.Jul.2014.pdf - Google Drive",
+            "type": "url",
+            "url": "https://drive.google.com/file/d/0B9v4gXG6wtN7ZjQzeVNwVHZ0eWs/view?pli=1"
+         }, {
+            "date_added": "13093441228147781",
+            "id": "212",
+            "name": "OrangeHRM",
+            "type": "url",
+            "url": "http://phoenix-pc:3000/sites/weare/symfony/web/index.php/auth/login"
+         }, {
+            "date_added": "13093534211685997",
+            "id": "215",
+            "name": "Tutorial - Getting Started With Node.js, Express, MongoDB | Christopher Buecheler - Web, Writing, Cocktails and More",
+            "type": "url",
+            "url": "http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/"
+         }, {
+            "date_added": "13093609527872897",
+            "id": "219",
+            "name": "node.js - could not install prerender using npm - \"Failed to locate: CL.exe\" - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/33239445/could-not-install-prerender-using-npm-failed-to-locate-cl-exe"
+         }, {
+            "date_added": "13093621476318446",
+            "id": "220",
+            "name": "A simple MVC framework with node and express - Tim Roberts",
+            "type": "url",
+            "url": "http://timstermatic.github.io/blog/2013/08/17/a-simple-mvc-framework-with-node-and-express/"
+         }, {
+            "date_added": "13093622336182794",
+            "id": "221",
+            "name": "Node.js and MongoDB - Getting Started with Mongoose",
+            "type": "url",
+            "url": "http://blog.modulus.io/getting-started-with-mongoose"
+         }, {
+            "date_added": "13093622356670872",
+            "id": "222",
+            "name": "Express application generator",
+            "type": "url",
+            "url": "http://expressjs.com/es/starter/generator.html"
+         }, {
+            "date_added": "13093622479062760",
+            "id": "223",
+            "name": "All About Sessions in Node.js - Stormpath User Identity API",
+            "type": "url",
+            "url": "https://stormpath.com/blog/everything-you-ever-wanted-to-know-about-node-dot-js-sessions/"
+         }, {
+            "date_added": "13093708989192807",
+            "id": "226",
+            "name": "Session Management In Your ExpressJS Web Application",
+            "type": "url",
+            "url": "https://blog.nraboy.com/2015/01/session-management-expressjs-web-application/"
+         }, {
+            "date_added": "13093953528152070",
+            "id": "229",
+            "name": "Socket.IO — Server API",
+            "type": "url",
+            "url": "http://socket.io/docs/server-api/"
+         }, {
+            "date_added": "13094119838980312",
+            "id": "232",
+            "name": "An Introduction to WebSockets - Treehouse Blog",
+            "type": "url",
+            "url": "http://blog.teamtreehouse.com/an-introduction-to-websockets"
+         }, {
+            "date_added": "13094314493078233",
+            "id": "235",
+            "name": "Mongoose Schemas v4.3.0",
+            "type": "url",
+            "url": "http://mongoosejs.com/docs/guide.html"
+         }, {
+            "date_added": "13094574238741066",
+            "id": "238",
+            "name": "Street View service | Google Maps JavaScript API | Google Developers",
+            "type": "url",
+            "url": "https://developers.google.com/maps/documentation/javascript/examples/streetview-simple"
+         }, {
+            "date_added": "13094728672364711",
+            "id": "241",
+            "name": "Top 50 WPF Interview Questions",
+            "type": "url",
+            "url": "http://career.guru99.com/top-50-wpf-interview-questions/"
+         }, {
+            "date_added": "13094832963697730",
+            "id": "244",
+            "name": "Directly accessing Street View data | Google Maps JavaScript API | Google Developers",
+            "type": "url",
+            "url": "https://developers.google.com/maps/documentation/javascript/examples/streetview-service"
+         }, {
+            "date_added": "13095431180335568",
+            "id": "247",
+            "name": "node demp app",
+            "type": "url",
+            "url": "http://shop.nodeshop.org/account/registered"
+         }, {
+            "date_added": "13095955830866366",
+            "id": "250",
+            "name": "passport",
+            "type": "url",
+            "url": "https://www.npmjs.com/package/passport"
+         }, {
+            "date_added": "13096386116446580",
+            "id": "253",
+            "name": "Understanding passport.js authentication flow",
+            "type": "url",
+            "url": "http://toon.io/understanding-passportjs-authentication-flow/"
+         }, {
+            "date_added": "13096457726799199",
+            "id": "256",
+            "name": "Mongoose ODM",
+            "type": "url",
+            "url": "http://mongoosejs.com/docs/2.7.x/docs/finding-documents.html"
+         }, {
+            "date_added": "13096732537979915",
+            "id": "259",
+            "name": "Socket.IO — Chat",
+            "type": "url",
+            "url": "http://socket.io/get-started/chat/"
+         }, {
+            "date_added": "13096973013309084",
+            "id": "262",
+            "name": "Enlarge Image On Hover CSS3 Demos | Grains of Sand - CSS & HTML5 Demos & Templates",
+            "type": "url",
+            "url": "http://cssdemos.tupence.co.uk/image-popup.htm"
+         }, {
+            "date_added": "13097856822707584",
+            "id": "265",
+            "name": "node.js knockout, Send Text Messages and Make Phone Calls with Node",
+            "type": "url",
+            "url": "http://blog.nodeknockout.com/post/66323669071/send-text-messages-and-make-phone-calls-with-node"
+         }, {
+            "date_added": "13097943229383482",
+            "id": "268",
+            "name": "How to Use SSL/TLS with Node.js",
+            "type": "url",
+            "url": "http://www.sitepoint.com/how-to-use-ssltls-with-node-js/"
+         }, {
+            "date_added": "13103901434948546",
+            "id": "271",
+            "name": "OpenShift Enterprise 3.1 Using Images",
+            "type": "url",
+            "url": "https://access.redhat.com/webassets/avalon/d/OpenShift_Enterprise-3.1-Using_Images-en-US/OpenShift_Enterprise-3.1-Using_Images-en-US.pdf"
+         }, {
+            "date_added": "13104337237870696",
+            "id": "274",
+            "name": "passport-facebook",
+            "type": "url",
+            "url": "https://www.npmjs.com/package/passport-facebook"
+         }, {
+            "date_added": "13104510820835242",
+            "id": "277",
+            "name": "PayPal-PHP-SDK/CreatePaymentUsingPayPal.php at master · paypal/PayPal-PHP-SDK · GitHub",
+            "type": "url",
+            "url": "https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/payments/CreatePaymentUsingPayPal.php"
+         }, {
+            "date_added": "13104510832578364",
+            "id": "278",
+            "name": "GitHub - anouarabdsslm/laravel-paypalpayment: Laravel paypal payment package , help you process credit card payment using paypal api",
+            "type": "url",
+            "url": "https://github.com/anouarabdsslm/laravel-paypalpayment"
+         }, {
+            "date_added": "13104512939202203",
+            "id": "279",
+            "name": "Implement paypal payment with laravel - YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/watch?v=q5Xb5r4MUB8"
+         }, {
+            "date_added": "13104829182521691",
+            "id": "282",
+            "name": "www.17educations.com/laravel/paypal-integration-in-laravel/",
+            "type": "url",
+            "url": "http://www.17educations.com/laravel/paypal-integration-in-laravel/"
+         }, {
+            "date_added": "13104839447907489",
+            "id": "283",
+            "name": "REST API reference - PayPal Developer",
+            "type": "url",
+            "url": "https://developer.paypal.com/docs/rest/api/"
+         }, {
+            "date_added": "13105459999715849",
+            "id": "286",
+            "name": "Rob Farley : The power of T-SQL's APPLY operator",
+            "type": "url",
+            "url": "http://sqlblog.com/blogs/rob_farley/archive/2011/04/13/the-power-of-t-sql-s-apply-operator.aspx"
+         }, {
+            "date_added": "13105629597049587",
+            "id": "289",
+            "name": "SQL Interview Q & A - Journey to SQL Authority with Pinal Dave",
+            "type": "url",
+            "url": "http://blog.sqlauthority.com/sql-server-interview-questions-and-answers/"
+         }, {
+            "date_added": "13106041729321228",
+            "id": "292",
+            "name": "SMS API - Twilio Text Messaging for Mobile & Web Apps",
+            "type": "url",
+            "url": "https://www.twilio.com/sms/api"
+         }, {
+            "date_added": "13106043022274831",
+            "id": "293",
+            "name": "Account Verification - Node.js / Express Tutorial - Twilio",
+            "type": "url",
+            "url": "https://www.twilio.com/docs/tutorials/walkthrough/account-verification/node/express"
+         }, {
+            "date_added": "13106048180137489",
+            "id": "294",
+            "name": "authy otp",
+            "type": "url",
+            "url": "https://www.npmjs.com/package/authy"
+         }, {
+            "date_added": "13106053362434759",
+            "id": "295",
+            "name": "Account Verification - Node.js / Express Tutorial - Twilio",
+            "type": "url",
+            "url": "https://www.twilio.com/docs/tutorials/walkthrough/account-verification/node/express#9"
+         }, {
+            "date_added": "13106389513646496",
+            "id": "298",
+            "name": "Lesson 1 - TextEdit Control with Spell Checking | DXSpellChecker | WPF Controls | DevExpress Help",
+            "type": "url",
+            "url": "https://documentation.devexpress.com/#WPF/CustomDocument17827"
+         }, {
+            "date_added": "13106755459848870",
+            "id": "301",
+            "name": "From Zero to Proficient with MEF - CodeProject",
+            "type": "url",
+            "url": "http://www.codeproject.com/Articles/376033/From-Zero-to-Proficient-with-MEF"
+         }, {
+            "date_added": "13106827056739027",
+            "id": "304",
+            "name": "Random Acts of Coding: A Deeper Look at MEF's Imports and Exports",
+            "type": "url",
+            "url": "http://randomactsofcoding.blogspot.in/2009/11/deeper-look-at-mef-imports-and-exports.html"
+         }, {
+            "date_added": "13106840324993464",
+            "id": "305",
+            "name": "Random Acts of Coding: Working with the Managed Extensibility Framework (TOC)",
+            "type": "url",
+            "url": "http://randomactsofcoding.blogspot.in/2009/11/working-with-managed-extensibility.html"
+         }, {
+            "date_added": "13107014418538277",
+            "id": "308",
+            "name": "Recover deleted SQL Server data and tables with the help of Transaction Log and LSNs",
+            "type": "url",
+            "url": "https://www.mssqltips.com/sqlservertip/3160/recover-deleted-sql-server-data-and-tables-with-the-help-of-transaction-log-and-lsns/"
+         }, {
+            "date_added": "13107272591996930",
+            "id": "311",
+            "name": "Automatically send emails daily at specific time using Windows Service in C# and VB.Net",
+            "type": "url",
+            "url": "http://www.aspsnippets.com/Articles/Automatically-send-emails-daily-at-specific-time-using-Windows-Service-in-C-and-VBNet.aspx"
+         }, {
+            "date_added": "13107359555684912",
+            "id": "314",
+            "name": "Q569043 - XtraReport printing in a Windows Service | DevExpress Support Center",
+            "type": "url",
+            "url": "https://www.devexpress.com/Support/Center/Question/Details/Q569043"
+         }, {
+            "date_added": "13107613861925571",
+            "id": "317",
+            "name": "Create Simple Windows Service And Setup Project With Installation",
+            "type": "url",
+            "url": "http://www.c-sharpcorner.com/UploadFile/b7531b/create-simple-window-service-and-setup-project-with-installa/"
+         }, {
+            "date_added": "13108023003801976",
+            "id": "320",
+            "name": "How to create a Setup project for a Windows Service in Visual Basic .NET or in Visual Basic 2005",
+            "type": "url",
+            "url": "https://support.microsoft.com/en-us/kb/317421"
+         }, {
+            "date_added": "13108138791194447",
+            "id": "323",
+            "name": "All you need to know about client side data storage",
+            "type": "url",
+            "url": "http://voidcanvas.com/client-side-data-storage/"
+         }, {
+            "date_added": "13108458457284950",
+            "id": "326",
+            "name": "sql - How to update a column via Row_Number with a different value for each row? - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/13884011/how-to-update-a-column-via-row-number-with-a-different-value-for-each-row"
+         }, {
+            "date_added": "13108548857486184",
+            "id": "329",
+            "name": "How to get Client Host Name or URL.HostName using Javascript",
+            "type": "url",
+            "url": "http://muqtharbasha.blogspot.in/2014/03/how-to-get-client-host-name-or.html"
+         }, {
+            "date_added": "13108741489445095",
+            "id": "332",
+            "name": "Func(TResult) Delegate (System)",
+            "type": "url",
+            "url": "https://msdn.microsoft.com/en-us/library/bb534960(v=vs.110).aspx"
+         }, {
+            "date_added": "13109410686319328",
+            "id": "335",
+            "name": "WCF tutorial",
+            "type": "url",
+            "url": "http://wcftutorial.net/WCF-IIS-Hosting.aspx"
+         }, {
+            "date_added": "13109952565624894",
+            "id": "338",
+            "name": "All About Database Testing - Why to Test, How to Test, What to Test",
+            "type": "url",
+            "url": "http://www.softwaretestinghelp.com/database-testing-process/"
+         }, {
+            "date_added": "13110457792766055",
+            "id": "341",
+            "name": "Twitter Bootstrap 3 Sticky Footer Quick Tips | Codementor",
+            "type": "url",
+            "url": "https://www.codementor.io/tips/4292721368/twitter-bootstrap-3-sticky-footer"
+         }, {
+            "date_added": "13110470920092137",
+            "id": "342",
+            "name": "c# - Advice on using the Dispatcher Priority and Binding - Stack Overflow",
+            "type": "url",
+            "url": "http://stackoverflow.com/questions/7477039/advice-on-using-the-dispatcher-priority-and-binding"
+         }, {
+            "date_added": "13110633991707289",
+            "id": "345",
+            "name": "Getting Started with the Managed Extensibility Framework – Super Development",
+            "type": "url",
+            "url": "https://superdevelopment.com/2014/01/13/getting-started-with-the-managed-extensibility-framework/"
+         } ],
+         "date_added": "13080719979428246",
+         "date_modified": "13110633991707289",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13080719979428263",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13080719979428266",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
